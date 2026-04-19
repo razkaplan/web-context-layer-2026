@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CaaS or DaaS? — Powered by Bright Data</title>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #091B36;
+      --card: #0D2243;
+      --card-border: #1a3460;
+      --blue: #3D7FFC;
+      --blue-light: #76A5FF;
+      --orange: #F59E0B;
+      --orange-light: #FCD34D;
+      --text: #E8EFF8;
+      --text-dim: #7A93B8;
+      --green: #22C55E;
+      --surface: #122952;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #root {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 3px; }
+
+    /* ─── Keyframes ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.4; }
+    }
+    @keyframes scanline {
+      0%   { transform: translateY(-100%); }
+      100% { transform: translateY(400%); }
+    }
+    @keyframes revealScale {
+      0%   { opacity: 0; transform: scale(0.4) translateY(10px); }
+      60%  { transform: scale(1.08) translateY(-4px); }
+      80%  { transform: scale(0.97) translateY(1px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -600px 0; }
+      100% { background-position: 600px 0; }
+    }
+    @keyframes progressBar {
+      from { width: 0%; }
+      to   { width: 100%; }
+    }
+    @keyframes checkPop {
+      0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+      60%  { transform: scale(1.25) rotate(5deg); opacity: 1; }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+    @keyframes borderGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(61, 127, 252, 0.3); }
+      50%       { box-shadow: 0 0 40px rgba(61, 127, 252, 0.7); }
+    }
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-6px); }
+    }
+    @keyframes dotBlink {
+      0%, 80%, 100% { transform: scale(0.8); opacity: 0.4; }
+      40% { transform: scale(1.2); opacity: 1; }
+    }
+    @keyframes orb1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%       { transform: translate(30px, -40px) scale(1.1); }
+      66%       { transform: translate(-20px, 20px) scale(0.9); }
+    }
+    @keyframes orb2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%       { transform: translate(-40px, 30px) scale(0.9); }
+      66%       { transform: translate(20px, -20px) scale(1.1); }
+    }
+
+    /* ─── Layout ─── */
+    .screen {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ─── Background orbs ─── */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(61,127,252,0.12) 0%, transparent 70%);
+      top: -100px; left: -100px;
+      animation: orb1 12s ease-in-out infinite;
+    }
+    .orb-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(118,165,255,0.08) 0%, transparent 70%);
+      bottom: -80px; right: -80px;
+      animation: orb2 15s ease-in-out infinite;
+    }
+
+    .content { position: relative; z-index: 1; width: 100%; max-width: 680px; }
+
+    /* ─── Screen 1: Input ─── */
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 48px;
+      animation: fadeUp 0.5s ease both;
+    }
+    .logo-mark {
+      width: 36px; height: 36px;
+      background: var(--blue);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 14px; letter-spacing: -0.5px;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(61,127,252,0.4);
+    }
+    .logo-text {
+      font-size: 13px; font-weight: 600;
+      color: var(--text-dim);
+      letter-spacing: 0.3px;
+    }
+    .logo-text span { color: var(--blue-light); }
+
+    .headline {
+      font-size: clamp(52px, 10vw, 88px);
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 0.95;
+      margin-bottom: 20px;
+      animation: fadeUp 0.5s 0.1s ease both;
+    }
+    .headline .caas { color: var(--blue); }
+    .headline .daas { color: var(--orange); }
+    .headline .or   { color: var(--text-dim); font-weight: 300; }
+
+    .subline {
+      font-size: 18px;
+      color: var(--text-dim);
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 40px;
+      animation: fadeUp 0.5s 0.2s ease both;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.5s 0.3s ease both;
+    }
+    .url-input {
+      flex: 1;
+      background: var(--card);
+      border: 1.5px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .url-input::placeholder { color: var(--text-dim); }
+    .url-input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(61,127,252,0.15);
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 16px 28px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(61,127,252,0.35);
+    }
+    .btn-primary:hover {
+      background: #5591fd;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(61,127,252,0.5);
+    }
+    .btn-primary:active { transform: translateY(0); }
+
+    .example-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.5s 0.4s ease both;
+    }
+    .example-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .example-chip {
+      background: var(--surface);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--blue-light);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, transform 0.1s;
+    }
+    .example-chip:hover {
+      background: var(--card-border);
+      border-color: var(--blue);
+      transform: translateY(-1px);
+    }
+
+    .attribution {
+      margin-top: 56px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-dim);
+      font-weight: 500;
+      animation: fadeUp 0.5s 0.5s ease both;
+    }
+    .attribution a {
+      color: var(--blue-light);
+      text-decoration: none;
+    }
+    .attribution a:hover { text-decoration: underline; }
+
+    /* ─── Screen 2: Scraping ─── */
+    .scan-card {
+      background: var(--card);
+      border: 1.5px solid var(--card-border);
+      border-radius: 20px;
+      padding: 40px;
+      animation: fadeUp 0.4s ease both, borderGlow 3s ease-in-out infinite;
+    }
+
+    .domain-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--blue);
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--blue-light);
+      margin-bottom: 32px;
+    }
+    .domain-dot {
+      width: 8px; height: 8px;
+      background: var(--blue);
+      border-radius: 50%;
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+
+    .scan-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 28px;
+      letter-spacing: -0.5px;
+    }
+
+    .step-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-dim);
+      transition: color 0.3s;
+    }
+    .step-item.active { color: var(--text); }
+    .step-item.done   { color: var(--green); }
+
+    .step-icon {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--card-border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 13px;
+      transition: all 0.3s;
+    }
+    .step-item.active .step-icon {
+      border-color: var(--blue);
+      background: rgba(61,127,252,0.15);
+      color: var(--blue);
+    }
+    .step-item.done .step-icon {
+      border-color: var(--green);
+      background: rgba(34,197,94,0.12);
+      color: var(--green);
+      animation: checkPop 0.4s ease both;
+    }
+
+    .dots-loader {
+      display: inline-flex;
+      gap: 4px;
+    }
+    .dot {
+      width: 4px; height: 4px;
+      background: var(--blue);
+      border-radius: 50%;
+    }
+    .dot:nth-child(1) { animation: dotBlink 1.2s ease-in-out infinite 0s; }
+    .dot:nth-child(2) { animation: dotBlink 1.2s ease-in-out infinite 0.2s; }
+    .dot:nth-child(3) { animation: dotBlink 1.2s ease-in-out infinite 0.4s; }
+
+    .progress-track {
+      background: var(--surface);
+      border-radius: 99px;
+      height: 6px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue), var(--blue-light));
+      border-radius: 99px;
+      transition: width 0.4s ease;
+      box-shadow: 0 0 10px rgba(61,127,252,0.5);
+    }
+    .progress-label {
+      font-size: 12px;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    /* ─── Screen 3: Reveal ─── */
+    .reveal-card {
+      background: var(--card);
+      border: 1.5px solid var(--card-border);
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .verdict-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+
+    .verdict-word {
+      font-size: clamp(72px, 16vw, 120px);
+      font-weight: 900;
+      letter-spacing: -4px;
+      line-height: 0.9;
+      margin-bottom: 8px;
+      animation: revealScale 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+    .verdict-word.caas { color: var(--blue); text-shadow: 0 0 60px rgba(61,127,252,0.4); }
+    .verdict-word.daas { color: var(--orange); text-shadow: 0 0 60px rgba(245,158,11,0.4); }
+
+    .confidence-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 99px;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 36px;
+      animation: fadeIn 0.4s 0.5s ease both;
+    }
+    .confidence-badge.caas {
+      background: rgba(61,127,252,0.12);
+      border: 1px solid rgba(61,127,252,0.3);
+      color: var(--blue-light);
+    }
+    .confidence-badge.daas {
+      background: rgba(245,158,11,0.12);
+      border: 1px solid rgba(245,158,11,0.3);
+      color: var(--orange-light);
+    }
+
+    .reasons-box {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 24px 28px;
+      text-align: left;
+      margin-bottom: 28px;
+      animation: fadeUp 0.4s 0.6s ease both;
+    }
+    .reasons-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+    .reason-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .reason-item:last-child { margin-bottom: 0; }
+    .reason-bullet {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+    .reason-bullet.caas { background: rgba(61,127,252,0.15); color: var(--blue); }
+    .reason-bullet.daas { background: rgba(245,158,11,0.15); color: var(--orange); }
+
+    .meaning-line {
+      font-size: 15px;
+      color: var(--text-dim);
+      font-style: italic;
+      margin-bottom: 36px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.03);
+      border-left: 3px solid var(--card-border);
+      border-radius: 0 8px 8px 0;
+      text-align: left;
+      animation: fadeUp 0.4s 0.75s ease both;
+    }
+
+    .action-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      animation: fadeUp 0.4s 0.85s ease both;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--blue-light);
+      border: 1.5px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--blue);
+      background: rgba(61,127,252,0.08);
+      transform: translateY(-1px);
+    }
+
+    .btn-share {
+      background: var(--surface);
+      color: var(--text);
+      border: 1.5px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-share:hover {
+      border-color: var(--blue-light);
+      transform: translateY(-1px);
+    }
+    .btn-share.copied {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .cta-footer {
+      font-size: 13px;
+      color: var(--text-dim);
+      animation: fadeIn 0.4s 1s ease both;
+    }
+    .cta-footer a {
+      color: var(--blue-light);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .cta-footer a:hover { text-decoration: underline; }
+
+    /* company name styling in scan */
+    .company-name-display {
+      font-weight: 700;
+      color: var(--blue-light);
+    }
+
+    /* shimmer loading text */
+    .shimmer-text {
+      background: linear-gradient(90deg, var(--text-dim) 25%, var(--text) 50%, var(--text-dim) 75%);
+      background-size: 600px 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 2s linear infinite;
+    }
+
+    @media (max-width: 520px) {
+      .scan-card, .reveal-card { padding: 28px 20px; }
+      .input-row { flex-direction: column; }
+      .btn-primary { width: 100%; }
+      .action-row { flex-direction: column; align-items: stretch; }
+      .btn-secondary, .btn-share { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+// ─── Pre-classified dataset ───────────────────────────────────────────────────
+const DATASET = {
+  // CaaS companies
+  "apollo.io":        { type: "CaaS", confidence: 93, company: "Apollo.io",         reasons: ["Delivers AI-scored lead intelligence and enriched contact profiles", "Sequences and prioritizes prospects, not just exports records", "Output is sales-ready context with buying signals attached"] },
+  "clearbit.com":     { type: "CaaS", confidence: 94, company: "Clearbit",           reasons: ["Real-time firmographic enrichment triggered at point-of-need", "Converts raw identifiers into actionable account intelligence", "Designed to enhance decisions, not fill databases"] },
+  "crunchbase.com":   { type: "CaaS", confidence: 88, company: "Crunchbase",         reasons: ["Funding and company intelligence contextualized for deal sourcing", "Trend signals and relationship graphs, not just raw funding records", "Subscription model optimized for research workflows"] },
+  "people.ai":        { type: "CaaS", confidence: 95, company: "People.ai",          reasons: ["Transforms CRM activity into AI-driven pipeline intelligence", "Surfaces rep performance insights and deal risk scores", "Zero raw data export — pure contextual sales intelligence"] },
+  "meltwater.com":    { type: "CaaS", confidence: 91, company: "Meltwater",          reasons: ["Media monitoring with AI sentiment and narrative context", "Delivers insights about brand perception, not just article links", "Competitive intelligence layer built on top of data collection"] },
+  "exa.ai":           { type: "CaaS", confidence: 92, company: "Exa",                reasons: ["Neural search API returns semantically relevant documents", "Designed as AI context engine, not a raw data feed", "Purpose-built to feed LLM pipelines with structured intelligence"] },
+  "perplexity.ai":    { type: "CaaS", confidence: 96, company: "Perplexity AI",      reasons: ["Synthesizes answers with citations — pure context delivery", "No raw data exports; output is always interpreted and structured", "Positioned explicitly as an AI answer engine"] },
+  "demandbase.com":   { type: "CaaS", confidence: 90, company: "Demandbase",         reasons: ["Account-based intelligence with intent scoring built in", "Identifies in-market buyers, not just company firmographics", "GTM orchestration platform powered by proprietary signals"] },
+  "usergems.com":     { type: "CaaS", confidence: 89, company: "UserGems",           reasons: ["Tracks job change signals to surface warm pipeline opportunities", "Output is prioritized prospect lists, not raw HR data", "Signal-to-action model with CRM integration at the core"] },
+  "leadspace.com":    { type: "CaaS", confidence: 87, company: "Leadspace",          reasons: ["B2B CDP that scores and segments using unified identity intelligence", "Enrichment + prediction layer, not a raw data warehouse", "Delivers recommended actions based on ICP fit scores"] },
+  "patlytics.ai":     { type: "CaaS", confidence: 93, company: "Patlytics",          reasons: ["AI-powered patent intelligence with freedom-to-operate analysis", "Delivers legal risk context, not raw patent record exports", "Designed for IP counsel making decisions, not data engineers"] },
+  "housecanary.com":  { type: "CaaS", confidence: 90, company: "HouseCanary",        reasons: ["AVM and property risk intelligence layered on valuation models", "Lenders and investors receive scored predictions, not CSV dumps", "Forecast outputs replace raw MLS and transaction data"] },
+  "crustdata.com":    { type: "CaaS", confidence: 88, company: "Crustdata",          reasons: ["Company and people intelligence enriched for AI agents", "API-first but output is structured context, not bulk data", "Positioned for agentic workflows requiring real-time enrichment"] },
+  "signal-ai.com":    { type: "CaaS", confidence: 91, company: "Signal AI",          reasons: ["Real-time external intelligence platform for enterprise decisions", "AI surfaces strategic insights from unstructured media data", "Clients consume decision-ready reports, not raw document feeds"] },
+  "owler.com":        { type: "CaaS", confidence: 85, company: "Owler",              reasons: ["Competitive intelligence delivered as curated company signals", "News and funding context overlaid with competitive tracking", "Community-verified data enhances context quality over raw accuracy"] },
+  "bombora.com":      { type: "CaaS", confidence: 92, company: "Bombora",            reasons: ["Intent signal intelligence mapped to buying journey stages", "Delivers 'who is researching what' context, not raw web traffic", "Cooperative data model produces proprietary intent scores"] },
+  "zoominfo.com":     { type: "CaaS", confidence: 89, company: "ZoomInfo",           reasons: ["GTM intelligence platform with AI-powered contact enrichment", "Conversation intelligence and pipeline signals beyond contact data", "Intent and engagement scoring shifts it toward context delivery"] },
+  "lusha.com":        { type: "CaaS", confidence: 86, company: "Lusha",              reasons: ["Point-of-need contact enrichment optimized for SDR workflows", "Browser extension model delivers context in workflow, not exports", "ICP matching and buyer intent signals accompany contact data"] },
+  "cognism.com":      { type: "CaaS", confidence: 88, company: "Cognism",            reasons: ["GDPR-compliant intelligence with phone-verified contacts", "Diamond data verification adds quality context to raw contacts", "Intent data integration drives toward signal-led outreach"] },
+  "6sense.com":       { type: "CaaS", confidence: 94, company: "6sense",             reasons: ["Predicts accounts in-market using AI and anonymous buying signals", "No raw data product — purely orchestrated account intelligence", "Revenue AI platform that scores and prioritizes pipeline opportunities"] },
+  "gong.io":          { type: "CaaS", confidence: 95, company: "Gong",               reasons: ["Conversation intelligence that surfaces deal risk and coaching moments", "Revenue intelligence platform, not a call recording export service", "AI transforms raw call data into next-best-action recommendations"] },
+  "chorus.ai":        { type: "CaaS", confidence: 93, company: "Chorus.ai",          reasons: ["Conversation intelligence with deal momentum scoring", "Managers receive coaching insights, not raw meeting transcripts", "Integrated into CRM as a contextual intelligence layer"] },
+  "diffbot.com":      { type: "CaaS", confidence: 89, company: "Diffbot",            reasons: ["Knowledge graph API delivers structured entity intelligence", "Web scraping abstracted behind semantic understanding layer", "Output is entity-resolved facts and relationships, not raw HTML"] },
+  "wiza.com":         { type: "CaaS", confidence: 84, company: "Wiza",               reasons: ["LinkedIn prospecting with real-time email verification context", "Enrichment-first model vs. bulk data export model", "Prospect scores and engagement signals accompany contact delivery"] },
+  "riveter.ai":       { type: "CaaS", confidence: 87, company: "Riveter",            reasons: ["Workforce intelligence with skills inference and talent signals", "Contextual labor market insights for talent acquisition teams", "Predictive models sit between raw data and delivered output"] },
+
+  // DaaS companies
+  "pdl.com":            { type: "DaaS", confidence: 92, company: "People Data Labs",     reasons: ["Sells person and company data as a bulk API and file export product", "Pricing is per-record and per-dataset — classic data volume model", "Customers build their own context layer on top of PDL records"] },
+  "peopledatalabs.com": { type: "DaaS", confidence: 92, company: "People Data Labs",     reasons: ["Sells person and company data as a bulk API and file export product", "Pricing is per-record and per-dataset — classic data volume model", "Customers build their own context layer on top of PDL records"] },
+  "acxiom.com":         { type: "DaaS", confidence: 94, company: "Acxiom",               reasons: ["Legacy data broker selling audience segments and identity data", "Core product is consumer data records delivered in batch", "Customers are marketers who build campaigns on top of Acxiom data"] },
+  "dnb.com":            { type: "DaaS", confidence: 91, company: "Dun & Bradstreet",      reasons: ["Business data and DUNS identifier system is raw reference data", "Core offering is data licensing and bulk firmographic records", "D&B Hoovers exports company profiles as data, not intelligence workflows"] },
+  "lexisnexis.com":     { type: "DaaS", confidence: 90, company: "LexisNexis",            reasons: ["Legal and regulatory data delivered as searchable record databases", "Raw document access and bulk data licensing for legal teams", "Identity and risk data feeds underpin third-party decisioning models"] },
+  "refinitiv.com":      { type: "DaaS", confidence: 93, company: "Refinitiv (LSEG)",      reasons: ["Financial market data feeds and reference data for terminals", "Tick data, pricing data, and bulk news archives as raw products", "Quants and analysts build their own models on Refinitiv data"] },
+  "factset.com":        { type: "DaaS", confidence: 90, company: "FactSet",               reasons: ["Standardized financial data packages and data feeds for analysts", "Raw fundamental data, estimates, and transcripts as core product", "Workstation access to bulk data underlies all FactSet packages"] },
+  "bloomberg.com":      { type: "DaaS", confidence: 88, company: "Bloomberg Data",        reasons: ["Bloomberg Data License delivers raw financial data at scale", "Terminal is data access; analytics are built on top by users", "Benchmark data and indices delivered as licensed data products"] },
+  "pitchbook.com":      { type: "DaaS", confidence: 87, company: "PitchBook",             reasons: ["Private market data exported as Excel/CSV for VC and PE research", "Deal and company records are the core product, not AI insights", "Users build their own analysis on top of PitchBook data exports"] },
+  "spglobal.com":       { type: "DaaS", confidence: 92, company: "S&P Global Market Intel", reasons: ["Market data feeds and financial records for institutional clients", "Data as infrastructure — banks and fintechs build on S&P data pipes", "Bulk data delivery via SFTP and APIs remains core offering"] },
+  "corelogic.com":      { type: "DaaS", confidence: 91, company: "CoreLogic",             reasons: ["Property data records, MLS data, and transaction history in bulk", "Sells data files and data licenses to insurers and lenders", "Raw property records underpin derivative analytics products"] },
+  "veridion.com":       { type: "DaaS", confidence: 86, company: "Veridion",              reasons: ["Company data enrichment API built on scraped web data", "Delivers structured records: revenue, employees, products — as data", "Customers consume raw enrichment records to build their own models"] },
+  "coresignal.com":     { type: "DaaS", confidence: 89, company: "Coresignal",            reasons: ["Professional network data and company data sold as bulk datasets", "Core product is fresh web-scraped records in JSON/CSV format", "Data freshness and coverage are the value proposition, not context"] },
+  "lightcast.io":       { type: "DaaS", confidence: 88, company: "Lightcast",             reasons: ["Labor market data and job posting data delivered as raw datasets", "Skills taxonomy and occupation data licensed to HR tech builders", "Underlying data infrastructure for workforce analytics platforms"] },
+  "revealiolabs.com":   { type: "DaaS", confidence: 85, company: "Revelio Labs",          reasons: ["Workforce data scraped from public sources and sold in bulk", "Headcount trends and hiring data delivered as structured records", "Academic and quant researchers are primary consumers of raw data"] },
+  "foursquare.com":     { type: "DaaS", confidence: 87, company: "Foursquare",            reasons: ["Places database and foot traffic data licensed to enterprises", "Location data feeds and SDK data packaged as raw datasets", "Customers build their own location intelligence on Foursquare data"] },
+  "safegraph.com":      { type: "DaaS", confidence: 90, company: "SafeGraph",             reasons: ["Places and mobility data sold as monthly/weekly bulk data files", "Core product is raw foot traffic patterns and POI data", "No analytics layer — pure data infrastructure for builders"] },
+  "precisely.com":      { type: "DaaS", confidence: 89, company: "Precisely",             reasons: ["Data integrity and address verification data as licensed products", "Master data management tools rely on bulk reference data assets", "Geocoding and demographic data delivered as enrichment files"] },
+  "experian.com":       { type: "DaaS", confidence: 91, company: "Experian Data",         reasons: ["Consumer credit data and marketing data sold at bureau scale", "B2B data enrichment is raw record delivery at high volume", "Data assets are licensed; decisioning tools are built on top"] },
+  "transunion.com":     { type: "DaaS", confidence: 90, company: "TransUnion",            reasons: ["Credit bureau data delivered as raw decisioning inputs for lenders", "Alternative data and identity files sold as bulk licensed products", "Underlying data infrastructure; customers own the context layer"] },
+};
+
+// ─── Pattern classifier ───────────────────────────────────────────────────────
+const CAAS_SIGNALS = ["intelligence","insights","enrichment","context","signal","predict","score","qualify","identify","discover","intent","insight","analyze","decision","recommend"];
+const DAAS_SIGNALS = ["data","feed","export","bulk","api","records","dataset","raw","stream","warehouse","database","repository","archive","catalog","license"];
+
+function classifyUnknown(domain) {
+  const text = domain.toLowerCase().replace(/[^a-z]/g," ");
+  let caasScore = 0, daasScore = 0;
+  CAAS_SIGNALS.forEach(w => { if (text.includes(w)) caasScore++; });
+  DAAS_SIGNALS.forEach(w => { if (text.includes(w)) daasScore++; });
+  const type = caasScore >= daasScore ? "CaaS" : "DaaS";
+  const diff = Math.abs(caasScore - daasScore);
+  const confidence = Math.min(95, 60 + diff * 5);
+  return {
+    type,
+    confidence,
+    company: domain.split(".")[0].charAt(0).toUpperCase() + domain.split(".")[0].slice(1),
+    reasons: type === "CaaS"
+      ? ["Product language emphasizes intelligence, context, or insights", "Positioning suggests value-added analysis over raw data delivery", "Likely targets business users who need answers, not data engineers"]
+      : ["Domain and product naming emphasizes data, feeds, or records", "Suggests bulk delivery model consumed by technical data teams", "Customers are likely builders constructing their own intelligence layer"],
+  };
+}
+
+function normalizeName(s) {
+  return s.toLowerCase()
+    .replace(/[^a-z0-9]/g," ")
+    .replace(/\s+/g," ")
+    .trim();
+}
+
+function lookupCompany(input) {
+  const cleaned = input.trim().toLowerCase()
+    .replace(/^https?:\/\//,"")
+    .replace(/^www\./,"")
+    .replace(/\/.*$/,"")
+    .trim();
+
+  // Direct domain match
+  if (DATASET[cleaned]) return { ...DATASET[cleaned], domain: cleaned };
+
+  // Score-based match: tokenize both the input and each dataset entry
+  const inputTokens = normalizeName(cleaned).split(" ").filter(t => t.length > 2);
+  let bestMatch = null, bestScore = 0;
+
+  for (const [domain, data] of Object.entries(DATASET)) {
+    // also tokenize the company name stored in data
+    const companyTokens = normalizeName(data.company).split(" ").filter(t => t.length > 2);
+    const domainTokens  = normalizeName(domain).split(/[\.\s]/).filter(t => t.length > 2);
+    const allTokens = [...new Set([...companyTokens, ...domainTokens])];
+
+    let score = 0;
+    for (const it of inputTokens) {
+      for (const dt of allTokens) {
+        if (it === dt) score += 2;
+        else if (dt.startsWith(it) || it.startsWith(dt)) score += 1;
+      }
+    }
+    // Require at least 2 points to avoid spurious single-word matches like "people"
+    if (score > bestScore && score >= 2) {
+      bestScore = score;
+      bestMatch = { ...data, domain };
+    }
+  }
+
+  if (bestMatch) return bestMatch;
+
+  // Pattern classifier fallback
+  const domain = cleaned.includes(".") ? cleaned : cleaned + ".com";
+  return { ...classifyUnknown(domain), domain };
+}
+
+// ─── Scraping steps ───────────────────────────────────────────────────────────
+const STEPS = [
+  "Connecting to domain...",
+  "Reading product positioning...",
+  "Analyzing delivery model...",
+  "Evaluating data output format...",
+  "Classifying...",
+];
+
+const EXAMPLES = ["Apollo.io", "People Data Labs", "6sense"];
+
+// ─── Icons ────────────────────────────────────────────────────────────────────
+const IconCheck = () => (
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+    <path d="M2 6L5 9L10 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+const IconSpinner = () => (
+  <div className="dots-loader">
+    <div className="dot"></div>
+    <div className="dot"></div>
+    <div className="dot"></div>
+  </div>
+);
+const IconShare = () => (
+  <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+    <path d="M10 1L14 5M14 5L10 9M14 5H5C3.343 5 2 6.343 2 8V14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+// ─── Screen 1: Input ──────────────────────────────────────────────────────────
+function InputScreen({ onAnalyze }) {
+  const [value, setValue] = useState("");
+
+  const handleSubmit = (e) => {
+    e && e.preventDefault();
+    if (value.trim()) onAnalyze(value.trim());
+  };
+
+  return (
+    <div className="screen">
+      <div className="orb orb-1"></div>
+      <div className="orb orb-2"></div>
+      <div className="content">
+        <div className="logo-row">
+          <div className="logo-mark">BD</div>
+          <div className="logo-text">Powered by <span>Bright Data Web Intelligence</span></div>
+        </div>
+
+        <h1 className="headline">
+          <span className="caas">CaaS</span>{" "}
+          <span className="or">or</span>{" "}
+          <span className="daas">DaaS?</span>
+        </h1>
+        <p className="subline">
+          Enter any data company URL.<br />We'll read it and decide.
+        </p>
+
+        <form className="input-row" onSubmit={handleSubmit}>
+          <input
+            className="url-input"
+            type="text"
+            placeholder="apollo.io or peopledatalabs.com"
+            value={value}
+            onChange={e => setValue(e.target.value)}
+            autoFocus
+          />
+          <button className="btn-primary" type="submit">Analyze →</button>
+        </form>
+
+        <div className="example-row">
+          <span className="example-label">Try:</span>
+          {EXAMPLES.map(ex => (
+            <button key={ex} className="example-chip" onClick={() => onAnalyze(ex)}>
+              {ex}
+            </button>
+          ))}
+        </div>
+
+        <div className="attribution">
+          <a href="https://brightdata.com/ai" target="_blank">brightdata.com/ai</a>
+          {" "}— Web intelligence infrastructure for AI pipelines
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Screen 2: Scraping animation ────────────────────────────────────────────
+function ScanScreen({ input, onComplete }) {
+  const [activeStep, setActiveStep] = useState(0);
+  const [doneSteps, setDoneSteps] = useState([]);
+  const [progress, setProgress] = useState(0);
+  const result = useRef(lookupCompany(input));
+
+  useEffect(() => {
+    const totalMs = 2500;
+    const stepMs = totalMs / STEPS.length;
+
+    const timers = STEPS.map((_, i) => {
+      return setTimeout(() => {
+        setActiveStep(i);
+        setDoneSteps(prev => i > 0 ? [...prev, i - 1] : prev);
+        setProgress(Math.round(((i + 1) / STEPS.length) * 100));
+      }, i * stepMs);
+    });
+
+    const finalTimer = setTimeout(() => {
+      setDoneSteps(STEPS.map((_, i) => i));
+      setProgress(100);
+      setTimeout(() => onComplete(result.current), 300);
+    }, totalMs);
+
+    return () => { timers.forEach(clearTimeout); clearTimeout(finalTimer); };
+  }, []);
+
+  const domain = result.current.domain;
+
+  return (
+    <div className="screen">
+      <div className="orb orb-1"></div>
+      <div className="orb orb-2"></div>
+      <div className="content">
+        <div className="scan-card">
+          <div className="domain-badge">
+            <div className="domain-dot"></div>
+            <span>{domain}</span>
+          </div>
+
+          <div className="scan-title">
+            <span className="shimmer-text">Analyzing {result.current.company}...</span>
+          </div>
+
+          <ul className="step-list">
+            {STEPS.map((step, i) => {
+              const isDone = doneSteps.includes(i);
+              const isActive = activeStep === i && !isDone;
+              return (
+                <li key={i} className={`step-item ${isDone ? "done" : isActive ? "active" : ""}`}>
+                  <div className="step-icon">
+                    {isDone ? <IconCheck /> : isActive ? <IconSpinner /> : <span style={{color:"var(--card-border)"}}>·</span>}
+                  </div>
+                  <span>{step.replace("domain", domain)}</span>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="progress-track">
+            <div className="progress-fill" style={{ width: `${progress}%` }}></div>
+          </div>
+          <div className="progress-label">{progress}% complete</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Screen 3: Reveal ─────────────────────────────────────────────────────────
+function RevealScreen({ result, onReset }) {
+  const [copied, setCopied] = useState(false);
+  const isCaaS = result.type === "CaaS";
+  const cls = isCaaS ? "caas" : "daas";
+
+  const meaning = isCaaS
+    ? `${result.company} delivers intelligence your AI can act on — not data your engineers have to clean.`
+    : `${result.company} delivers raw data that your team transforms into intelligence. Classic DaaS infrastructure play.`;
+
+  const shareText = `I just ran ${result.company} through the CaaS or DaaS detector.\n\nIt's ${result.confidence}% ${result.type}.\n\nIs your data company ready for the context shift?\n\nbright data.com/ai`;
+
+  const handleShare = async () => {
+    try {
+      await navigator.clipboard.writeText(shareText.replace("bright data","brightdata"));
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      const el = document.createElement("textarea");
+      el.value = shareText.replace("bright data","brightdata");
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand("copy");
+      document.body.removeChild(el);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    }
+  };
+
+  return (
+    <div className="screen">
+      <div className="orb orb-1"></div>
+      <div className="orb orb-2"></div>
+      <div className="content">
+        <div className="reveal-card">
+          <div className="verdict-label">Verdict for {result.company}</div>
+
+          <div className={`verdict-word ${cls}`}>{result.type}</div>
+
+          <div className={`confidence-badge ${cls}`}>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M5 7L6.5 8.5L9 5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            {result.confidence}% confidence
+          </div>
+
+          <div className="reasons-box">
+            <div className="reasons-title">Why we said {result.type}</div>
+            {result.reasons.map((reason, i) => (
+              <div key={i} className="reason-item">
+                <div className={`reason-bullet ${cls}`}>{i + 1}</div>
+                <span>{reason}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="meaning-line">{meaning}</div>
+
+          <div className="action-row">
+            <button className="btn-secondary" onClick={onReset}>← Try another</button>
+            <button className={`btn-share ${copied ? "copied" : ""}`} onClick={handleShare}>
+              {copied ? (
+                <><IconCheck /> Copied!</>
+              ) : (
+                <><IconShare /> Share result</>
+              )}
+            </button>
+          </div>
+
+          <div className="cta-footer">
+            Your AI pipeline runs on context.{" "}
+            <a href="https://brightdata.com/ai" target="_blank">brightdata.com/ai</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── App root ─────────────────────────────────────────────────────────────────
+function App() {
+  const [screen, setScreen] = useState("input");
+  const [input, setInput]   = useState("");
+  const [result, setResult] = useState(null);
+
+  const handleAnalyze = (val) => {
+    setInput(val);
+    setScreen("scan");
+  };
+
+  const handleComplete = (res) => {
+    setResult(res);
+    setScreen("reveal");
+  };
+
+  const handleReset = () => {
+    setResult(null);
+    setInput("");
+    setScreen("input");
+  };
+
+  if (screen === "input")  return <InputScreen onAnalyze={handleAnalyze} />;
+  if (screen === "scan")   return <ScanScreen key={input} input={input} onComplete={handleComplete} />;
+  if (screen === "reveal") return <RevealScreen key={result && result.domain + result.type} result={result} onReset={handleReset} />;
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+</script>
+</body>
+</html>

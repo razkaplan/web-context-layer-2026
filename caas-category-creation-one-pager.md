@@ -45,6 +45,12 @@ Thought Leader Ads from Raz's profile (2.68% avg CTR), carousel formats, video c
 **4. BDR email cadence** (done)
 10 touches over 21 days. 4 segment-specific templates (B2B Intelligence, Alt Finance, News & Media, Labor Analytics). No e-commerce. Each template references the target's specific data product and collection challenge. Core ROI frame: a 3–5 engineer scraping team runs $618K–$957K/year fully loaded. Comparable Bright Data coverage: $12K–$36K/year. The engineers don't disappear — they move off scraper maintenance onto the product logic, enrichment, and AI that actually differentiate the product.
 
+**5. PodCaaSt: "Context Is All You Need"** (in production)
+Weekly video podcast from Bright Data SF studio. Every episode is a standalone content asset: full video on YouTube, audio on Spotify/Apple, 3-5 short clips for LinkedIn and X, transcript published on BrightContext. Guests become distribution: each episode reaches their audience with a BD-branded piece of content. Season 1 guests include Harrison Chase (LangChain), Jerry Liu (LlamaIndex), Jay Kreps (Confluent), Mike Tung (Diffbot), Ben Zweig (Revelio Labs). The podcast seeds every other channel: blog material, conference speakers, BDR warm intros, event anchors.
+
+**6. CaaS or DaaS? — Interactive Web Game** (done)
+Standalone web game at brightdata.com/caas-or-daas. User enters any data company URL. Bright Data's Web Intelligence reads the homepage, analyzes positioning and delivery model, and returns a verdict: CaaS or DaaS, with a confidence score and 3 reasons. Shareable result card with LinkedIn-ready copy. Designed to go viral inside the ICP community. Every share is a BD impression. Every result drives curiosity about the CaaS category. Playable at events, embedded in BDR outreach ("Run your own company through it"), promoted by podcast guests. Built on Bright Data's own tools, demonstrating the product in real-time.
+
 ---
 
 ## Channels
@@ -100,37 +106,40 @@ Every signal auto-routes to the BDR team with context. High-intent signals (job 
 
 ### 5. SF Loft Events
 
-Community events at the Bright Data SF office. Two recurring series targeting builders before they become buyers.
+The Bright Data SF office is the physical anchor of the CaaS community. Two recurring series, both built around the universe of 200 target companies. The goal is not awareness — it's relationships. Every event should result in at least 3 new pipeline conversations and 1 piece of published content.
+
+**The frame for every event:** The universe companies are not just targets. They are collaborators in naming and building the CaaS category. Invite them to present, not just attend. Ask them to bring an engineer. Feature their product as part of the session. When a company in the universe co-hosts an event with Bright Data, they become a category partner, not a prospect.
 
 **AI Tinkerers SF** (Monthly, ~40 attendees)
 
-AI Tinkerers is a global practitioner community of engineers who ship things. Format: 2 short demos + 1 hands-on build block. Bright Data hosts, provides API access for the night, and one BD engineer participates as a builder, not a salesperson.
+AI Tinkerers is a global practitioner community of engineers who ship things. Bright Data hosts the SF chapter. One slot per event is reserved for a universe company to demo their data product (15 min, no pitch, pure technical demo). This is the invite: "We're building a series on how AI data companies use web intelligence. We'd love to feature how you do it."
 
-| Session | Topic | Format |
+| Session | Topic | Universe anchor |
 |---|---|---|
-| 1 | Build a live web data pipeline for your AI agent | Demo + 90-min build |
-| 2 | Context-first RAG: real-time web vs. static embeddings | Talk + guided build |
-| 3 | Web data for agents: what breaks in production | Panel (3 practitioners) + open build |
-| 4 | From idea to deployed: AI data product in one evening | Mini-hackathon, prizes |
+| 1 | Build a live web data pipeline for your AI agent | Demo + 90-min build. Feature a B2B intelligence company. |
+| 2 | Context-first RAG: real-time web vs. static embeddings | Invite a news/media intelligence company to co-present. |
+| 3 | Web data for agents: what breaks in production | Panel: 3 universe company engineers. BD moderates. |
+| 4 | CaaS or DaaS? — Live game night | Run the game live on the screen, classify the audience's companies in real-time. |
 
 **lablab.ai SF Hackathon** (Quarterly, 60-100 attendees)
 
-lablab.ai runs AI hackathons globally with a developer community of 100K+. Bright Data sponsors the SF edition and provides the challenge track. Format: 6-hour hackathon, teams of 2-4, judged demo at the end.
+lablab.ai runs AI hackathons globally with a developer community of 100K+. Bright Data sponsors the SF edition and provides the challenge track. Universe companies are invited as challenge co-sponsors and judges — their real data problems become the hackathon prompts.
 
-| Track | Challenge | Prize |
+| Track | Challenge | Universe co-sponsor |
 |---|---|---|
-| Web-native AI agent | Build an agent that answers questions using only live web data | $2K + BD credits |
-| AI data product | Build a CaaS product using BD's APIs | $1.5K + BD credits |
-| Real-time RAG | Build a RAG pipeline with zero static embeddings | $1K + BD credits |
+| Web-native AI agent | Build an agent that answers questions using only live web data | Exa, Perplexity |
+| AI data product | Build a CaaS product using BD's APIs, judged on context quality | Apollo, Crunchbase |
+| Real-time RAG | Build a RAG pipeline with zero static embeddings | Signal AI, Meltwater |
 
-**Mechanics for both:**
-- Every attendee gets 30-day BD API trial, no credit card
-- BD engineer on-site as a resource, not a closer
-- Sessions recorded for BrightContext and social clips
-- Top 3 builders from each event invited to future podcast episodes
-- CaaSCon speaker pipeline sourced partly from these events
+**Asset loop — how every event feeds the other channels:**
+- Every attendee gets 30-day BD API trial, no credit card. Trial opens a BDR sequence.
+- Game night sessions filmed and cut into 60-second clips for LinkedIn.
+- Universe company demo at AI Tinkerers becomes a BrightContext article ("How [Company] builds their data pipeline").
+- Top 3 hackathon builders invited to podcast episodes in the following month.
+- CaaSCon Q4 speaker list built directly from event speakers and hackathon winners.
+- Each event email goes to the full universe list. Subject line: "You're in the report. Come build with us."
 
-**Budget:** $3K-$5K per AI Tinkerers event (food, API credits, prizes). $8K-$12K per lablab.ai hackathon (venue, food, prizes, promotion). ~$60K/year for 4 tinkerers + 4 hackathons.
+**Budget:** $3K-$5K per AI Tinkerers event. $8K-$12K per lablab.ai hackathon. ~$60K/year for 4 tinkerers + 4 hackathons.
 
 ---
 
