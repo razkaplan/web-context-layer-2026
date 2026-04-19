@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The State of the DaaS Industry 2026 — Bright Data</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink:      #0C1222;
+  --ink-mid:  #1E293B;
+  --ink-soft: #334155;
+  --orange:   #E8520A;
+  --orange-l: #FF6B2B;
+  --orange-bg:#FFF4EE;
+  --teal:     #0D9488;
+  --blue:     #2563EB;
+  --paper:    #FFFFFF;
+  --paper-2:  #F8FAFC;
+  --paper-3:  #F1F5F9;
+  --border:   #E2E8F0;
+  --border-s: #CBD5E1;
+  --muted:    #64748B;
+  --muted-2:  #94A3B8;
+  --sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05);
+  --md: 0 4px 12px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.04);
+  --lg: 0 10px 30px rgba(0,0,0,.10), 0 4px 8px rgba(0,0,0,.05);
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.6}
+
+/* UTIL */
+.wrap{max-width:1080px;margin:0 auto;padding:0 40px}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.h1{font-size:clamp(38px,5vw,66px);font-weight:900;letter-spacing:-.035em;line-height:1.02;color:#fff}
+.h2{font-size:clamp(24px,3vw,38px);font-weight:800;letter-spacing:-.028em;line-height:1.1;color:var(--ink);margin-bottom:14px}
+.h2 em{font-style:normal;color:var(--orange)}
+.h3{font-size:18px;font-weight:700;letter-spacing:-.015em;color:var(--ink);margin-bottom:10px}
+.lead{font-size:16px;color:var(--muted);line-height:1.8;max-width:700px}
+.divider{height:1px;background:var(--border);margin:72px 0}
+a{color:var(--orange);text-decoration:none}
+a:hover{text-decoration:underline}
+sup a{font-size:10px;color:var(--muted-2);vertical-align:super}
+
+/* HEADER */
+.header{background:var(--ink);padding:80px 0 72px;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-200px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(232,82,10,.12),transparent 65%);pointer-events:none}
+.header-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-l);background:rgba(255,107,43,.12);border:1px solid rgba(255,107,43,.2);padding:6px 14px;border-radius:100px;margin-bottom:28px}
+.header-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--orange-l)}
+.header h1{font-size:clamp(38px,5vw,66px);font-weight:900;letter-spacing:-.035em;line-height:1.02;color:#fff;max-width:780px;margin-bottom:20px}
+.header h1 span{color:var(--orange-l)}
+.header-sub{font-size:18px;color:#94A3B8;max-width:580px;line-height:1.7;margin-bottom:36px}
+.header-meta{display:flex;gap:24px;flex-wrap:wrap;font-size:13px;color:#475569}
+.header-meta b{color:#94A3B8}
+
+/* SECTION SPACING */
+section{padding:72px 0 0}
+section:last-of-type{padding-bottom:72px}
+
+/* SHIFT SECTION */
+.shift-grid{display:grid;grid-template-columns:1fr 56px 1fr;gap:0;align-items:center;margin-top:48px}
+.shift-card{border-radius:16px;padding:36px 32px;border:1px solid var(--border);box-shadow:var(--sm)}
+.shift-card.old{background:var(--paper-2)}
+.shift-card.new{background:var(--ink);border-color:rgba(232,82,10,.3)}
+.shift-tag{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 11px;border-radius:100px;display:inline-block;margin-bottom:20px}
+.shift-tag.old{background:var(--paper-3);color:var(--muted)}
+.shift-tag.new{background:rgba(255,107,43,.15);color:var(--orange-l)}
+.shift-card.new .h3{color:#fff}
+.shift-list{list-style:none;display:flex;flex-direction:column;gap:11px}
+.shift-list li{font-size:13.5px;color:var(--muted);display:flex;align-items:flex-start;gap:10px;line-height:1.45}
+.shift-card.new .shift-list li{color:#94A3B8}
+.shift-list .blt{flex-shrink:0;color:var(--muted-2);margin-top:1px;font-size:15px;line-height:1}
+.shift-card.new .shift-list .blt{color:var(--orange-l)}
+.shift-arrow{display:flex;align-items:center;justify-content:center;color:var(--orange)}
+.shift-arrow svg{width:26px;height:26px}
+
+/* COMPANY INTRO CHIPS */
+.co-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.co-chip{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:500;color:var(--ink-soft);background:var(--paper);border:1px solid var(--border);padding:7px 13px;border-radius:8px;box-shadow:var(--sm);transition:box-shadow .15s}
+.co-chip:hover{box-shadow:var(--md)}
+.co-chip img{width:18px;height:18px;border-radius:3px;object-fit:contain}
+.co-chip .co-desc{color:var(--muted-2);font-size:11px;font-weight:400;border-left:1px solid var(--border);padding-left:8px;margin-left:2px}
+
+/* MARKET OVERVIEW */
+.market-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.stat-card{background:var(--paper);border:1px solid var(--border);border-radius:14px;padding:28px 24px;box-shadow:var(--sm)}
+.stat-card.accent{background:var(--ink);border-color:transparent}
+.stat-num{font-size:36px;font-weight:900;letter-spacing:-.03em;line-height:1;color:var(--ink);margin-bottom:6px}
+.stat-card.accent .stat-num{color:#fff}
+.stat-num em{font-style:normal;color:var(--orange)}
+.stat-label{font-size:13px;color:var(--muted);line-height:1.4}
+.stat-card.accent .stat-label{color:#64748B}
+.stat-source{font-size:11px;color:var(--muted-2);margin-top:8px}
+
+/* CAGR CHART */
+.cagr-chart{margin-top:48px;background:var(--paper);border:1px solid var(--border);border-radius:16px;padding:32px 36px;box-shadow:var(--sm)}
+.cagr-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+.cagr-row{display:grid;grid-template-columns:220px 1fr 52px;gap:16px;align-items:center;margin-bottom:14px}
+.cagr-row:last-child{margin-bottom:0}
+.cagr-lbl{font-size:13px;color:var(--ink-soft);text-align:right;line-height:1.3}
+.cagr-track{height:9px;background:var(--paper-3);border-radius:100px;overflow:hidden}
+.cagr-fill{height:100%;border-radius:100px;background:linear-gradient(to right,var(--orange),#FF8C5A)}
+.cagr-val{font-size:13px;font-weight:700;color:var(--orange)}
+
+/* MARKET LANDSCAPE */
+.ls-segment{border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--sm);margin-top:28px}
+.ls-head{display:grid;grid-template-columns:1fr auto;align-items:center;padding:20px 24px;background:var(--paper-2);border-bottom:1px solid var(--border);gap:16px}
+.ls-name{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.ls-sub{font-size:12px;color:var(--muted);margin-top:2px}
+.ls-badges{display:flex;gap:10px;align-items:center;flex-shrink:0}
+.ls-mkt{font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.ls-cagr{font-size:12px;font-weight:700;color:var(--teal);background:rgba(13,148,136,.08);border:1px solid rgba(13,148,136,.2);padding:4px 10px;border-radius:100px}
+.ls-body{display:grid;grid-template-columns:1fr 1px 220px;gap:0}
+.ls-companies-wrap{padding:20px 24px}
+.ls-inv-wrap{padding:20px 24px;background:var(--paper-2)}
+.ls-sep{background:var(--border)}
+.ls-section-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2);margin-bottom:14px}
+.ls-logos{display:flex;flex-wrap:wrap;gap:8px}
+.ls-co{display:flex;align-items:center;gap:7px;background:var(--paper);border:1px solid var(--border);border-radius:7px;padding:6px 11px;font-size:12.5px;font-weight:500;color:var(--ink-soft);box-shadow:var(--sm);transition:border-color .15s,box-shadow .15s}
+.ls-co:hover{border-color:var(--orange);box-shadow:var(--md)}
+.ls-co img{width:16px;height:16px;border-radius:3px;object-fit:contain;background:#fff;flex-shrink:0}
+.ls-inv-list{display:flex;flex-direction:column;gap:9px}
+.ls-inv{display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--ink-soft);line-height:1.35}
+.ls-inv img{width:18px;height:18px;border-radius:3px;object-fit:contain;background:#fff;flex-shrink:0;margin-top:1px;border:1px solid var(--border)}
+.ls-inv-amount{font-weight:700;color:var(--orange);white-space:nowrap}
+
+/* VC SECTION */
+.vc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.vc-card{background:var(--paper);border:1px solid var(--border);border-radius:14px;padding:24px;box-shadow:var(--sm);display:flex;flex-direction:column;gap:14px;transition:box-shadow .15s}
+.vc-card:hover{box-shadow:var(--md)}
+.vc-head{display:flex;align-items:center;gap:12px}
+.vc-logo{width:40px;height:40px;border-radius:8px;object-fit:contain;background:var(--paper-2);border:1px solid var(--border);padding:4px;flex-shrink:0}
+.vc-name{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.vc-focus{font-size:11px;color:var(--muted);margin-top:1px}
+.vc-deals{display:flex;flex-direction:column;gap:6px}
+.vc-deal{font-size:12px;color:var(--ink-soft);display:flex;align-items:baseline;gap:6px;line-height:1.35}
+.vc-deal-co{font-weight:600;color:var(--ink);white-space:nowrap}
+.vc-deal-amt{font-size:11px;color:var(--orange);font-weight:700;white-space:nowrap}
+.vc-deal-dot{width:4px;height:4px;border-radius:50%;background:var(--border-s);flex-shrink:0;margin-top:5px}
+
+/* INFRA SECTION */
+.infra-split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:48px}
+.infra-body p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:18px}
+.infra-body p strong{color:var(--ink);font-weight:600}
+.infra-body p:last-child{margin-bottom:0}
+.infra-stats{display:flex;flex-direction:column;gap:14px}
+.infra-kpi{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:20px 22px;box-shadow:var(--sm)}
+.infra-kpi.hot{background:var(--ink);border-color:rgba(232,82,10,.25)}
+.infra-kpi-num{font-size:32px;font-weight:900;letter-spacing:-.03em;line-height:1;color:var(--ink);margin-bottom:4px}
+.infra-kpi.hot .infra-kpi-num{color:#fff}
+.infra-kpi-num em{font-style:normal;color:var(--orange)}
+.infra-kpi-desc{font-size:12.5px;color:var(--muted);line-height:1.45}
+.infra-kpi.hot .infra-kpi-desc{color:#64748B}
+
+/* FAILURE CARDS */
+.failure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.failure-card{background:var(--paper-2);border:1px solid var(--border);border-radius:12px;padding:22px 20px}
+.failure-num{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);margin-bottom:10px}
+.failure-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
+.failure-desc{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* LAYER DIAGRAM */
+.layer-diag{background:var(--ink);border-radius:20px;padding:52px 48px;margin-top:48px;position:relative;overflow:hidden}
+.layer-diag::before{content:'';position:absolute;bottom:-120px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(232,82,10,.08),transparent 70%);pointer-events:none}
+.layer-diag-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#475569;text-align:center;margin-bottom:32px}
+.layers{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:0}
+.lyr{padding:18px 26px;border-radius:10px;font-size:13.5px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.lyr.l1{background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.2);color:#93C5FD;border-bottom-left-radius:3px;border-bottom-right-radius:3px}
+.lyr.l2{background:rgba(13,148,136,.08);border:1px solid rgba(13,148,136,.18);border-left:3px solid var(--teal);color:#5EEAD4;margin:0 28px;border-radius:3px;border-top:none;border-bottom:none}
+.lyr.l3{background:linear-gradient(135deg,rgba(232,82,10,.18),rgba(232,82,10,.08));border:1px solid rgba(232,82,10,.35);color:var(--orange-l);font-weight:700;font-size:14.5px;border-top-left-radius:3px;border-top-right-radius:3px}
+.lyr-tag{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.55;white-space:nowrap}
+.lyr-conn{display:flex;align-items:center;justify-content:center;height:18px;margin:0 28px;color:#334155}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px;position:relative;z-index:1}
+.prod-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:16px}
+.prod-name{font-size:13px;font-weight:700;color:#E2E8F0;margin-bottom:6px}
+.prod-desc{font-size:11.5px;color:#64748B;line-height:1.5}
+.cert-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;position:relative;z-index:1}
+.cert{font-size:11px;font-weight:600;color:#94A3B8;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:5px 12px;border-radius:6px;display:flex;align-items:center;gap:6px}
+.cert-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0}
+
+/* SOURCES */
+.sources-section{background:var(--paper-2);border-top:1px solid var(--border);padding:48px 0}
+.sources-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px 32px;margin-top:24px}
+.source-item{font-size:11.5px;color:var(--muted);display:flex;gap:8px;line-height:1.45}
+.source-num{color:var(--muted-2);flex-shrink:0;font-weight:600;min-width:18px}
+
+/* CLOSING */
+.closing{text-align:center;padding:88px 0;background:var(--ink);position:relative;overflow:hidden}
+.closing::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(232,82,10,.07),transparent 65%);pointer-events:none}
+.closing-q{font-size:clamp(22px,3vw,36px);font-weight:700;letter-spacing:-.025em;line-height:1.25;color:#fff;max-width:660px;margin:0 auto 24px}
+.closing-q span{color:var(--orange-l)}
+.closing-sub{font-size:15px;color:#64748B;max-width:420px;margin:0 auto 40px;line-height:1.65}
+.cta-btn{display:inline-flex;align-items:center;gap:9px;background:var(--orange-l);color:#fff;font-size:14px;font-weight:700;padding:14px 28px;border-radius:9px;text-decoration:none;letter-spacing:.01em;transition:opacity .2s}
+.cta-btn:hover{opacity:.85;text-decoration:none}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--border);padding:28px 0;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted-2)}
+.footer-logo{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.footer-logo span{color:var(--orange)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .shift-grid{grid-template-columns:1fr;gap:12px}
+  .shift-arrow{transform:rotate(90deg);margin:4px auto}
+  .market-stats{grid-template-columns:1fr 1fr}
+  .vc-grid{grid-template-columns:1fr 1fr}
+  .infra-split{grid-template-columns:1fr;gap:32px}
+  .prod-grid{grid-template-columns:1fr 1fr}
+  .failure-grid{grid-template-columns:1fr}
+  .ls-body{grid-template-columns:1fr}
+  .ls-sep{display:none}
+  .ls-inv-wrap{border-top:1px solid var(--border)}
+  .footer{flex-direction:column;gap:12px;text-align:center}
+}
+@media(max-width:600px){
+  .wrap{padding:0 20px}
+  .market-stats{grid-template-columns:1fr}
+  .vc-grid{grid-template-columns:1fr}
+  .cagr-row{grid-template-columns:130px 1fr 44px}
+  .ls-head{grid-template-columns:1fr;gap:12px}
+  .ls-badges{justify-content:flex-start}
+  .prod-grid{grid-template-columns:1fr}
+  .sources-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header class="header">
+<div class="wrap">
+  <div class="header-tag"><span class="header-tag-dot"></span>Bright Data Research — April 2026</div>
+  <h1 class="h1">The State of the<br><span>DaaS Industry</span></h1>
+  <p class="header-sub">How large language models are reshaping the data-as-a-service market — the new companies, the investors backing them, and the infrastructure they all depend on.</p>
+  <div class="header-meta">
+    <span><b>Published:</b> April 2026</span>
+    <span><b>Author:</b> Raz Kaplan, AI GTM Lead, Bright Data</span>
+    <span><b>Scope:</b> Six segments — 60+ companies — 20+ investors</span>
+  </div>
+</div>
+</header>
+
+<main>
+
+<!-- ==================== THE SHIFT ==================== -->
+<section class="wrap">
+  <div class="eyebrow">The Core Shift</div>
+  <h2 class="h2">DaaS is no longer about<br><em>delivering raw data</em></h2>
+  <p class="lead">LLMs have changed what a data product is. A new generation of companies uses AI to synthesize information across dozens of sources, extract non-obvious relationships, and deliver structured intelligence rather than raw tables. <a href="https://enigma.com" target="_blank">Enigma</a> maps hidden ownership and business relationships from fragmented public records. <a href="https://reveliolabs.com" target="_blank">Revelio Labs</a> builds a real-time workforce intelligence graph from public signals. <a href="https://yipitdata.com" target="_blank">YipitData</a><sup><a href="#s1">[1]</a></sup> turns web-scraped transaction signals into institutional-grade market intelligence. <a href="https://ravenpack.com" target="_blank">RavenPack</a><sup><a href="#s2">[2]</a></sup> runs NLP across millions of news articles per day for financial sentiment signals. <a href="https://clay.com" target="_blank">Clay</a><sup><a href="#s3">[3]</a></sup> aggregates 100+ data sources in real time to power AI-driven GTM workflows. <a href="https://exa.ai" target="_blank">Exa</a><sup><a href="#s4">[4]</a></sup> re-indexes the web semantically so AI agents can search by meaning, not keyword. These are not traditional DaaS companies with better packaging — they are a structurally different product category.</p>
+
+  <div class="shift-grid" style="margin-top:44px">
+    <div class="shift-card old">
+      <span class="shift-tag old">Traditional DaaS</span>
+      <h3 class="h3">Raw data delivery</h3>
+      <ul class="shift-list">
+        <li><span class="blt">·</span>Single-source vertical datasets</li>
+        <li><span class="blt">·</span>Batch exports, CSV pipelines, quarterly refresh</li>
+        <li><span class="blt">·</span>Scraping one or two target sites</li>
+        <li><span class="blt">·</span>Data sold as-is, no enrichment layer</li>
+        <li><span class="blt">·</span>Compliance: a contractual checkbox</li>
+        <li><span class="blt">·</span>Moderate scraping scale</li>
+      </ul>
+    </div>
+    <div class="shift-arrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </div>
+    <div class="shift-card new">
+      <span class="shift-tag new">AI-Native DaaS</span>
+      <h3 class="h3">Structured intelligence</h3>
+      <ul class="shift-list">
+        <li><span class="blt">→</span>Multi-source aggregation across dozens of sites and data types</li>
+        <li><span class="blt">→</span>LLM enrichment pipelines running on live, real-time retrieval</li>
+        <li><span class="blt">→</span>Relationship extraction, entity resolution, semantic search</li>
+        <li><span class="blt">→</span>LLMs hallucinate on stale data — live grounding is non-negotiable</li>
+        <li><span class="blt">→</span>SOC 2 Type II + ISO 27001 required to close enterprise contracts</li>
+        <li><span class="blt">→</span>10–100x higher scraping scale than traditional DaaS</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider wrap"></div>
+
+<!-- ==================== MARKET OVERVIEW ==================== -->
+<section class="wrap">
+  <div class="eyebrow">Market Overview</div>
+  <h2 class="h2">Six segments. <em>$92B+</em> combined.<br>All undergoing the same transformation.</h2>
+  <p class="lead">Each segment has an emerging layer of AI-native entrants on top of legacy incumbents. The new entrants share one structural dependency: production-grade, real-time web access infrastructure.</p>
+
+  <div class="market-stats">
+    <div class="stat-card accent">
+      <div class="stat-num"><em>$92B+</em></div>
+      <div class="stat-label">Combined addressable market across six segments</div>
+      <div class="stat-source">Aggregated from Grand View Research, MarketsandMarkets, Tracxn sector reports</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num"><em>57%</em></div>
+      <div class="stat-label">of organizations have AI agents in production as of March 2026<sup><a href="#s5">[5]</a></sup></div>
+      <div class="stat-source">Master of Code, 2026 AI Agent Report</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num"><em>58%</em></div>
+      <div class="stat-label">of AI agent use cases involve research and live web information<sup><a href="#s6">[6]</a></sup></div>
+      <div class="stat-source">LangChain State of AI Agents Report</div>
+    </div>
+  </div>
+
+  <div class="cagr-chart">
+    <div class="cagr-title">Annual growth rate by segment (CAGR)</div>
+    <div class="cagr-row"><div class="cagr-lbl">Search &amp; Discovery APIs</div><div class="cagr-track"><div class="cagr-fill" style="width:100%"></div></div><div class="cagr-val">65%</div></div>
+    <div class="cagr-row"><div class="cagr-lbl">News &amp; Media Intelligence</div><div class="cagr-track"><div class="cagr-fill" style="width:48%"></div></div><div class="cagr-val">31%</div></div>
+    <div class="cagr-row"><div class="cagr-lbl">B2B Intelligence &amp; GTM Data</div><div class="cagr-track"><div class="cagr-fill" style="width:43%"></div></div><div class="cagr-val">28%</div></div>
+    <div class="cagr-row"><div class="cagr-lbl">Alternative Financial Data</div><div class="cagr-track"><div class="cagr-fill" style="width:37%"></div></div><div class="cagr-val">24%</div></div>
+    <div class="cagr-row"><div class="cagr-lbl">Labor &amp; Workforce Analytics</div><div class="cagr-track"><div class="cagr-fill" style="width:34%"></div></div><div class="cagr-val">22%</div></div>
+    <div class="cagr-row"><div class="cagr-lbl">Real Estate &amp; PropTech Data</div><div class="cagr-track"><div class="cagr-fill" style="width:28%"></div></div><div class="cagr-val">18%</div></div>
+  </div>
+</section>
+
+<div class="divider wrap"></div>
+
+<!-- ==================== MARKET LANDSCAPE ==================== -->
+<section class="wrap">
+  <div class="eyebrow">Market Landscape</div>
+  <h2 class="h2">Companies and capital<br>by segment</h2>
+  <p class="lead">Each segment is listed with its leading AI-native and transitioning players, alongside the named investors and deal amounts where publicly available.</p>
+
+  <!-- SEG 1 -->
+  <div class="ls-segment">
+    <div class="ls-head">
+      <div><div class="ls-name">Search &amp; Discovery APIs</div><div class="ls-sub">AI-native web search infrastructure for agents and RAG pipelines</div></div>
+      <div class="ls-badges"><div class="ls-mkt">$280M</div><div class="ls-cagr">65% CAGR</div></div>
+    </div>
+    <div class="ls-body">
+      <div class="ls-companies-wrap">
+        <div class="ls-section-label">Key companies</div>
+        <div class="ls-logos">
+          <div class="ls-co"><img src="https://logo.clearbit.com/tavily.com" onerror="this.style.display='none'" alt="">Tavily</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/exa.ai" onerror="this.style.display='none'" alt="">Exa</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/firecrawl.dev" onerror="this.style.display='none'" alt="">Firecrawl</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/perplexity.ai" onerror="this.style.display='none'" alt="">Perplexity</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/browserbase.com" onerror="this.style.display='none'" alt="">Browserbase</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/you.com" onerror="this.style.display='none'" alt="">You.com</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/jina.ai" onerror="this.style.display='none'" alt="">Jina AI</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/search.brave.com" onerror="this.style.display='none'" alt="">Brave Search</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/linkup.so" onerror="this.style.display='none'" alt="">Linkup</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/scrapegraphai.com" onerror="this.style.display='none'" alt="">ScrapeGraphAI</div>
+        </div>
+      </div>
+      <div class="ls-sep"></div>
+      <div class="ls-inv-wrap">
+        <div class="ls-section-label">Notable investors</div>
+        <div class="ls-inv-list">
+          <div class="ls-inv"><img src="https://logo.clearbit.com/lsvp.com" onerror="this.style.display='none'" alt=""><div>Lightspeed Venture Partners<br><span class="ls-inv-amount">Exa Series A ($17M)</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/ycombinator.com" onerror="this.style.display='none'" alt=""><div>Y Combinator<br><span class="ls-inv-amount">Exa, Firecrawl, others</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/nvidia.com" onerror="this.style.display='none'" alt=""><div>Nvidia Ventures<br><span class="ls-inv-amount">Exa Series A</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/nebius.com" onerror="this.style.display='none'" alt=""><div>Nebius<br><span class="ls-inv-amount">Tavily Series A ($25M)</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/nexusvp.com" onerror="this.style.display='none'" alt=""><div>Nexus Venture Partners<br><span class="ls-inv-amount">Firecrawl Series A lead</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEG 2 -->
+  <div class="ls-segment">
+    <div class="ls-head">
+      <div><div class="ls-name">B2B Intelligence &amp; GTM Data</div><div class="ls-sub">AI-powered sales intelligence, contact enrichment and GTM automation</div></div>
+      <div class="ls-badges"><div class="ls-mkt">$2.6B</div><div class="ls-cagr">28% CAGR</div></div>
+    </div>
+    <div class="ls-body">
+      <div class="ls-companies-wrap">
+        <div class="ls-section-label">Key companies</div>
+        <div class="ls-logos">
+          <div class="ls-co"><img src="https://logo.clearbit.com/clay.com" onerror="this.style.display='none'" alt="">Clay</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/apollo.io" onerror="this.style.display='none'" alt="">Apollo.io</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/lusha.com" onerror="this.style.display='none'" alt="">Lusha</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/peopledatalabs.com" onerror="this.style.display='none'" alt="">People Data Labs</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/cognism.com" onerror="this.style.display='none'" alt="">Cognism</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/demandbase.com" onerror="this.style.display='none'" alt="">Demandbase</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/keyplay.io" onerror="this.style.display='none'" alt="">Keyplay</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/6sense.com" onerror="this.style.display='none'" alt="">6sense</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/bombora.com" onerror="this.style.display='none'" alt="">Bombora</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/hunter.io" onerror="this.style.display='none'" alt="">Hunter.io</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/builtwith.com" onerror="this.style.display='none'" alt="">BuiltWith</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/clearbit.com" onerror="this.style.display='none'" alt="">Clearbit</div>
+        </div>
+      </div>
+      <div class="ls-sep"></div>
+      <div class="ls-inv-wrap">
+        <div class="ls-section-label">Notable investors</div>
+        <div class="ls-inv-list">
+          <div class="ls-inv"><img src="https://logo.clearbit.com/capitalg.com" onerror="this.style.display='none'" alt=""><div>CapitalG (Google)<br><span class="ls-inv-amount">Clay Series C lead ($100M, $3.1B val)</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/sequoiacap.com" onerror="this.style.display='none'" alt=""><div>Sequoia Capital<br><span class="ls-inv-amount">Clay, Apollo.io ($900M val)</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/meritech.com" onerror="this.style.display='none'" alt=""><div>Meritech Capital<br><span class="ls-inv-amount">Clay Series C</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/firstround.com" onerror="this.style.display='none'" alt=""><div>First Round Capital<br><span class="ls-inv-amount">Clay</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/insightpartners.com" onerror="this.style.display='none'" alt=""><div>Insight Partners<br><span class="ls-inv-amount">Apollo.io, Meltwater</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEG 3 -->
+  <div class="ls-segment">
+    <div class="ls-head">
+      <div><div class="ls-name">Alternative Financial Data</div><div class="ls-sub">Web-sourced signals for institutional investors and quant funds</div></div>
+      <div class="ls-badges"><div class="ls-mkt">$21.6B</div><div class="ls-cagr">24% CAGR</div></div>
+    </div>
+    <div class="ls-body">
+      <div class="ls-companies-wrap">
+        <div class="ls-section-label">Key companies</div>
+        <div class="ls-logos">
+          <div class="ls-co"><img src="https://logo.clearbit.com/yipitdata.com" onerror="this.style.display='none'" alt="">YipitData</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/ravenpack.com" onerror="this.style.display='none'" alt="">RavenPack</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/enigma.com" onerror="this.style.display='none'" alt="">Enigma</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/thinknum.com" onerror="this.style.display='none'" alt="">Thinknum</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/advanresearch.com" onerror="this.style.display='none'" alt="">Advan Research</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/accern.com" onerror="this.style.display='none'" alt="">Accern</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/mscience.com" onerror="this.style.display='none'" alt="">M Science</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/earnestresearch.com" onerror="this.style.display='none'" alt="">Earnest Research</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/preqin.com" onerror="this.style.display='none'" alt="">Preqin</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/secondmeasure.com" onerror="this.style.display='none'" alt="">Second Measure</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/neudata.co" onerror="this.style.display='none'" alt="">Neudata</div>
+        </div>
+      </div>
+      <div class="ls-sep"></div>
+      <div class="ls-inv-wrap">
+        <div class="ls-section-label">Notable investors</div>
+        <div class="ls-inv-list">
+          <div class="ls-inv"><img src="https://logo.clearbit.com/carlyle.com" onerror="this.style.display='none'" alt=""><div>Carlyle Group<br><span class="ls-inv-amount">YipitData Series E ($475M, $1B val)</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/gpbullhound.com" onerror="this.style.display='none'" alt=""><div>GP Bullhound<br><span class="ls-inv-amount">RavenPack ($20M, Jul 2024)</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/moltenventures.com" onerror="this.style.display='none'" alt=""><div>Molten Ventures<br><span class="ls-inv-amount">RavenPack</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/nea.com" onerror="this.style.display='none'" alt=""><div>NEA<br><span class="ls-inv-amount">Accern</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEG 4 -->
+  <div class="ls-segment">
+    <div class="ls-head">
+      <div><div class="ls-name">Real Estate Intelligence &amp; PropTech Data</div><div class="ls-sub">AI-driven property data, valuation models, and listing intelligence</div></div>
+      <div class="ls-badges"><div class="ls-mkt">$52.3B</div><div class="ls-cagr">18% CAGR</div></div>
+    </div>
+    <div class="ls-body">
+      <div class="ls-companies-wrap">
+        <div class="ls-section-label">Key companies</div>
+        <div class="ls-logos">
+          <div class="ls-co"><img src="https://logo.clearbit.com/housecanary.com" onerror="this.style.display='none'" alt="">HouseCanary</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/reonomy.com" onerror="this.style.display='none'" alt="">Reonomy</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/cherre.com" onerror="this.style.display='none'" alt="">Cherre</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/attomdata.com" onerror="this.style.display='none'" alt="">Attom</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/airdna.co" onerror="this.style.display='none'" alt="">AirDNA</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/parcl.com" onerror="this.style.display='none'" alt="">Parcl</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/compstak.com" onerror="this.style.display='none'" alt="">CompStak</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/mashvisor.com" onerror="this.style.display='none'" alt="">Mashvisor</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/estated.com" onerror="this.style.display='none'" alt="">Estated</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/entera.ai" onerror="this.style.display='none'" alt="">Entera</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/roofstock.com" onerror="this.style.display='none'" alt="">Roofstock</div>
+        </div>
+      </div>
+      <div class="ls-sep"></div>
+      <div class="ls-inv-wrap">
+        <div class="ls-section-label">Notable investors</div>
+        <div class="ls-inv-list">
+          <div class="ls-inv"><img src="https://logo.clearbit.com/a16z.com" onerror="this.style.display='none'" alt=""><div>Andreessen Horowitz<br><span class="ls-inv-amount">HouseCanary</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/fifthwall.com" onerror="this.style.display='none'" alt=""><div>Fifth Wall<br><span class="ls-inv-amount">PropTech specialist — AirDNA, portfolio</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/sapphireventures.com" onerror="this.style.display='none'" alt=""><div>Sapphire Ventures<br><span class="ls-inv-amount">Cherre</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/lovellminnick.com" onerror="this.style.display='none'" alt=""><div>Lovell Minnick Partners<br><span class="ls-inv-amount">Attom</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEG 5 -->
+  <div class="ls-segment">
+    <div class="ls-head">
+      <div><div class="ls-name">News &amp; Media Intelligence</div><div class="ls-sub">AI-powered brand monitoring, editorial analytics, and sentiment platforms</div></div>
+      <div class="ls-badges"><div class="ls-mkt">$15.5B</div><div class="ls-cagr">31% CAGR</div></div>
+    </div>
+    <div class="ls-body">
+      <div class="ls-companies-wrap">
+        <div class="ls-section-label">Key companies</div>
+        <div class="ls-logos">
+          <div class="ls-co"><img src="https://logo.clearbit.com/signal-ai.com" onerror="this.style.display='none'" alt="">Signal AI</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/newswhip.com" onerror="this.style.display='none'" alt="">Newswhip</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/meltwater.com" onerror="this.style.display='none'" alt="">Meltwater</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/talkwalker.com" onerror="this.style.display='none'" alt="">Talkwalker</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/zignal.com" onerror="this.style.display='none'" alt="">Zignal Labs</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/brandwatch.com" onerror="this.style.display='none'" alt="">Brandwatch</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/mention.com" onerror="this.style.display='none'" alt="">Mention</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/onclusive.com" onerror="this.style.display='none'" alt="">Onclusive</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/pulsar.co" onerror="this.style.display='none'" alt="">Pulsar</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/storyful.com" onerror="this.style.display='none'" alt="">Storyful</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/carma.com" onerror="this.style.display='none'" alt="">Carma</div>
+        </div>
+      </div>
+      <div class="ls-sep"></div>
+      <div class="ls-inv-wrap">
+        <div class="ls-section-label">Notable investors</div>
+        <div class="ls-inv-list">
+          <div class="ls-inv"><img src="https://logo.clearbit.com/mmc.vc" onerror="this.style.display='none'" alt=""><div>MMC Ventures<br><span class="ls-inv-amount">Signal AI (lead investor)</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/bgf.co.uk" onerror="this.style.display='none'" alt=""><div>BGF<br><span class="ls-inv-amount">Signal AI</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/insightpartners.com" onerror="this.style.display='none'" alt=""><div>Insight Partners<br><span class="ls-inv-amount">Meltwater</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/vistaequitypartners.com" onerror="this.style.display='none'" alt=""><div>Vista Equity Partners<br><span class="ls-inv-amount">Brandwatch (via Cision)</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEG 6 -->
+  <div class="ls-segment">
+    <div class="ls-head">
+      <div><div class="ls-name">Labor Market &amp; Workforce Analytics</div><div class="ls-sub">AI-driven talent intelligence, hiring signals, workforce composition data</div></div>
+      <div class="ls-badges"><div class="ls-mkt">$280M+</div><div class="ls-cagr">22% CAGR</div></div>
+    </div>
+    <div class="ls-body">
+      <div class="ls-companies-wrap">
+        <div class="ls-section-label">Key companies</div>
+        <div class="ls-logos">
+          <div class="ls-co"><img src="https://logo.clearbit.com/reveliolabs.com" onerror="this.style.display='none'" alt="">Revelio Labs</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/lightcast.io" onerror="this.style.display='none'" alt="">Lightcast</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/eightfold.ai" onerror="this.style.display='none'" alt="">Eightfold AI</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/seekout.com" onerror="this.style.display='none'" alt="">SeekOut</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/findem.ai" onerror="this.style.display='none'" alt="">Findem</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/stratigens.com" onerror="this.style.display='none'" alt="">Stratigens</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/beamery.com" onerror="this.style.display='none'" alt="">Beamery</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/textkernel.com" onerror="this.style.display='none'" alt="">Textkernel</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/hireez.com" onerror="this.style.display='none'" alt="">hireEZ</div>
+          <div class="ls-co"><img src="https://logo.clearbit.com/horsefly.io" onerror="this.style.display='none'" alt="">Horsefly Analytics</div>
+        </div>
+      </div>
+      <div class="ls-sep"></div>
+      <div class="ls-inv-wrap">
+        <div class="ls-section-label">Notable investors</div>
+        <div class="ls-inv-list">
+          <div class="ls-inv"><img src="https://logo.clearbit.com/kkr.com" onerror="this.style.display='none'" alt=""><div>KKR<br><span class="ls-inv-amount">Lightcast ($162M)</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/elephant.vc" onerror="this.style.display='none'" alt=""><div>Elephant Venture Capital<br><span class="ls-inv-amount">Revelio Labs Series A ($15M)</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/generalcatalyst.com" onerror="this.style.display='none'" alt=""><div>General Catalyst<br><span class="ls-inv-amount">Eightfold AI</span></div></div>
+          <div class="ls-inv"><img src="https://logo.clearbit.com/tigerglobal.com" onerror="this.style.display='none'" alt=""><div>Tiger Global<br><span class="ls-inv-amount">SeekOut</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="divider wrap"></div>
+
+<!-- ==================== ACTIVE VCs ==================== -->
+<section class="wrap">
+  <div class="eyebrow">Investor Landscape</div>
+  <h2 class="h2">The VCs most active<br>in <em>AI-native DaaS</em></h2>
+  <p class="lead">Capital is concentrating around a small group of funds that have made repeated bets across multiple segments. These are the firms that understand the infrastructure problem.</p>
+
+  <div class="vc-grid">
+
+    <div class="vc-card">
+      <div class="vc-head">
+        <img class="vc-logo" src="https://logo.clearbit.com/ycombinator.com" onerror="this.src=''" alt="YC">
+        <div><div class="vc-name">Y Combinator</div><div class="vc-focus">Seed — AI infrastructure &amp; data tools</div></div>
+      </div>
+      <div class="vc-deals">
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Exa</span><span class="vc-deal-amt">Co-investor, Series A</span></div>
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Firecrawl</span><span class="vc-deal-amt">Seed + Series A participant</span></div>
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Multiple AI data startups</span><span class="vc-deal-amt">Most active seed investor globally</span></div>
+      </div>
+    </div>
+
+    <div class="vc-card">
+      <div class="vc-head">
+        <img class="vc-logo" src="https://logo.clearbit.com/capitalg.com" onerror="this.src=''" alt="CapitalG">
+        <div><div class="vc-name">CapitalG (Google)</div><div class="vc-focus">Growth — AI GTM &amp; data products</div></div>
+      </div>
+      <div class="vc-deals">
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Clay</span><span class="vc-deal-amt">Series C lead — $100M at $3.1B</span><sup><a href="#s3">[3]</a></sup></div>
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Thesis</span><span class="vc-deal-amt">AI-native GTM data infrastructure</span></div>
+      </div>
+    </div>
+
+    <div class="vc-card">
+      <div class="vc-head">
+        <img class="vc-logo" src="https://logo.clearbit.com/sequoiacap.com" onerror="this.src=''" alt="Sequoia">
+        <div><div class="vc-name">Sequoia Capital</div><div class="vc-focus">Series A-C — AI applications &amp; data</div></div>
+      </div>
+      <div class="vc-deals">
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Clay</span><span class="vc-deal-amt">Series B and C participant</span></div>
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Apollo.io</span><span class="vc-deal-amt">Series D — $900M valuation</span></div>
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Active across AI agent ecosystem</span><span class="vc-deal-amt">100+ AI rounds 2025</span><sup><a href="#s7">[7]</a></sup></div>
+      </div>
+    </div>
+
+    <div class="vc-card">
+      <div class="vc-head">
+        <img class="vc-logo" src="https://logo.clearbit.com/lsvp.com" onerror="this.src=''" alt="Lightspeed">
+        <div><div class="vc-name">Lightspeed Venture Partners</div><div class="vc-focus">Series A — AI infrastructure &amp; developer tools</div></div>
+      </div>
+      <div class="vc-deals">
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Exa</span><span class="vc-deal-amt">Series A lead — $17M</span><sup><a href="#s4">[4]</a></sup></div>
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Focus</span><span class="vc-deal-amt">Web access and AI-native search infrastructure</span></div>
+      </div>
+    </div>
+
+    <div class="vc-card">
+      <div class="vc-head">
+        <img class="vc-logo" src="https://logo.clearbit.com/kkr.com" onerror="this.src=''" alt="KKR">
+        <div><div class="vc-name">KKR</div><div class="vc-focus">Growth/PE — data &amp; workforce analytics</div></div>
+      </div>
+      <div class="vc-deals">
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Lightcast</span><span class="vc-deal-amt">$162M — labor market data</span></div>
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Thesis</span><span class="vc-deal-amt">Data infrastructure at enterprise scale</span></div>
+      </div>
+    </div>
+
+    <div class="vc-card">
+      <div class="vc-head">
+        <img class="vc-logo" src="https://logo.clearbit.com/carlyle.com" onerror="this.src=''" alt="Carlyle">
+        <div><div class="vc-name">Carlyle Group</div><div class="vc-focus">Growth/PE — alternative data</div></div>
+      </div>
+      <div class="vc-deals">
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">YipitData</span><span class="vc-deal-amt">Series E — $475M at $1B val</span><sup><a href="#s1">[1]</a></sup></div>
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Thesis</span><span class="vc-deal-amt">Web-scraped alternative financial data at scale</span></div>
+      </div>
+    </div>
+
+    <div class="vc-card">
+      <div class="vc-head">
+        <img class="vc-logo" src="https://logo.clearbit.com/insightpartners.com" onerror="this.src=''" alt="Insight">
+        <div><div class="vc-name">Insight Partners</div><div class="vc-focus">Growth — SaaS data products</div></div>
+      </div>
+      <div class="vc-deals">
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Apollo.io</span><span class="vc-deal-amt">Early-stage lead</span></div>
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Meltwater</span><span class="vc-deal-amt">Media intelligence</span></div>
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Active across B2B data</span><span class="vc-deal-amt">100+ B2B SaaS investments</span></div>
+      </div>
+    </div>
+
+    <div class="vc-card">
+      <div class="vc-head">
+        <img class="vc-logo" src="https://logo.clearbit.com/a16z.com" onerror="this.src=''" alt="a16z">
+        <div><div class="vc-name">Andreessen Horowitz</div><div class="vc-focus">All stages — AI-first companies</div></div>
+      </div>
+      <div class="vc-deals">
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">HouseCanary</span><span class="vc-deal-amt">PropTech data intelligence</span></div>
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Most active global investor 2024</span><span class="vc-deal-amt">100+ rounds</span><sup><a href="#s7">[7]</a></sup></div>
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">AI infra thesis</span><span class="vc-deal-amt">Backing the data layer of AI</span></div>
+      </div>
+    </div>
+
+    <div class="vc-card">
+      <div class="vc-head">
+        <img class="vc-logo" src="https://logo.clearbit.com/generalcatalyst.com" onerror="this.src=''" alt="GC">
+        <div><div class="vc-name">General Catalyst</div><div class="vc-focus">Series A-C — AI applications</div></div>
+      </div>
+      <div class="vc-deals">
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">Eightfold AI</span><span class="vc-deal-amt">Workforce intelligence</span></div>
+        <div class="vc-deal"><span class="vc-deal-dot"></span><span class="vc-deal-co">AI deal volume</span><span class="vc-deal-amt">27 AI deals in 2024, up from 2023</span><sup><a href="#s7">[7]</a></sup></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider wrap"></div>
+
+<!-- ==================== INFRA REQUIREMENT ==================== -->
+<section class="wrap">
+  <div class="eyebrow">The Infrastructure Requirement</div>
+  <h2 class="h2">Why web access infrastructure is<br>the <em>critical dependency</em> of this market</h2>
+
+  <div class="infra-split">
+    <div class="infra-body">
+      <p>Every AI-native DaaS company in this market depends on continuous, high-volume access to the public web. The data feeding their LLM enrichment pipelines, their entity resolution graphs, their real-time financial signals, comes from web pages that actively resist automated access. <strong>LinkedIn, Zillow, major financial sites, and news outlets deploy IP blocking, browser fingerprinting, and CAPTCHA middleware</strong> that defeats standard residential proxies within days of scaling at production volume. These are not inconveniences — they are the primary technical barrier to building a reliable data product.</p>
+      <p>The infrastructure required to solve this is not a scraper. It is a network layer: <strong>72 million residential IPs</strong> with clean, independent behavioral profiles, request routing that mirrors organic user patterns, session management that survives bot detection, and a headless browser environment that renders JavaScript as a real human browser would. Building this in-house takes years and produces a fraction of the reliability of purpose-built infrastructure. <a href="https://estuary.dev/blog/reducing-data-engineering-technical-debt" target="_blank">Research from Monte Carlo Data shows 40% of engineering time goes to maintaining broken data feeds</a><sup><a href="#s8">[8]</a></sup> — the maintenance loop is structural, not a skill gap.</p>
+      <p><strong>The second dependency is freshness for LLM accuracy.</strong> AI-native DaaS companies feed live web data directly into LLM enrichment pipelines. <a href="https://www.k2view.com/blog/rag-hallucination/" target="_blank">Research on RAG hallucination identifies three production failure modes</a><sup><a href="#s9">[9]</a></sup>: fabricated statistics (the model generates plausible-sounding numbers from retrieved text), incomplete retrieval (vector search misses relevant data scattered across sources), and out-of-domain fabrication (when no relevant live data is retrieved, the model invents an answer). Live web grounding is the only structural fix.</p>
+      <p><strong>The third dependency is compliance.</strong> <a href="https://hyperproof.io/soc2/" target="_blank">SOC 2 Type II is now standard in US enterprise vendor reviews</a><sup><a href="#s10">[10]</a></sup> and ISO 27001 is increasingly mandatory in EU procurement. The compliance stack of the infrastructure layer passes through to the data product. A company cannot retrofit certifications onto an in-house scraping stack — the compliance story has to come from the vendor.</p>
+    </div>
+    <div class="infra-stats">
+      <div class="infra-kpi hot">
+        <div class="infra-kpi-num"><em>72M+</em></div>
+        <div class="infra-kpi-desc">Residential IPs with independent behavioral profiles across 195 countries. No shared pool degradation.</div>
+      </div>
+      <div class="infra-kpi">
+        <div class="infra-kpi-num">99.7%</div>
+        <div class="infra-kpi-desc">Documented request success rate on the sites that block standard proxies — LinkedIn, Zillow, major financial portals.</div>
+      </div>
+      <div class="infra-kpi">
+        <div class="infra-kpi-num">40%</div>
+        <div class="infra-kpi-desc">Of engineering time spent on broken data feeds, per Monte Carlo Data. Two full working days per week on maintenance.</div>
+      </div>
+      <div class="infra-kpi">
+        <div class="infra-kpi-num">5</div>
+        <div class="infra-kpi-desc">Compliance certifications: SOC 2 Type II, ISO 27001, GDPR, CCPA, CSA STAR. No direct competitor holds all five.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY IN-HOUSE FAILS -->
+  <div style="margin-top:52px">
+    <div class="eyebrow">Why building this in-house fails</div>
+    <div class="failure-grid">
+      <div class="failure-card">
+        <div class="failure-num">Reason 01</div>
+        <div class="failure-title">Shared IP pools degrade at scale</div>
+        <div class="failure-desc">Standard residential proxy pools accumulate blocks across all users simultaneously. By the time a team scales to production volume, the pool's behavioral reputation with target sites is already compromised. Detection is triggered by traffic pattern analysis, not individual request volume.</div>
+      </div>
+      <div class="failure-card">
+        <div class="failure-num">Reason 02</div>
+        <div class="failure-title">Sites change faster than teams can ship</div>
+        <div class="failure-desc">Every DOM update, new bot middleware deployment, or JS rendering change breaks the scraper at runtime regardless of how well it was written. AI coding tools make writing the initial scraper trivial. They do nothing for the runtime when the target site changes. The maintenance loop is structural.</div>
+      </div>
+      <div class="failure-card">
+        <div class="failure-num">Reason 03</div>
+        <div class="failure-title">Compliance cannot be retrofitted</div>
+        <div class="failure-desc">SOC 2 Type II and ISO 27001 require 12 months of documented operational controls, audited by an independent third party. An enterprise security review arrives before the certification is ready. The compliance documentation has to come from the infrastructure vendor from day one.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAYER DIAGRAM -->
+  <div class="layer-diag">
+    <div class="layer-diag-label">The AI-Native DaaS Stack</div>
+    <div class="layers">
+      <div class="lyr l1"><span>AI Agent or Enterprise Buyer</span><span class="lyr-tag">End customer</span></div>
+      <div class="lyr-conn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></div>
+      <div class="lyr l2"><span>AI-Native DaaS Product: intelligence, enrichment, entity resolution</span><span class="lyr-tag">The product</span></div>
+      <div class="lyr-conn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></div>
+      <div class="lyr l3"><span>Web Access Infrastructure: the layer these companies cannot build themselves</span><span class="lyr-tag">Bright Data</span></div>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card"><div class="prod-name">Web Unlocker</div><div class="prod-desc">Production access to any public URL through IP blocking, CAPTCHA, and anti-automation middleware at scale.</div></div>
+      <div class="prod-card"><div class="prod-name">SERP API</div><div class="prod-desc">Structured search results via API. Direct Bing replacement. Feeds financial signal, media, and B2B intelligence pipelines.</div></div>
+      <div class="prod-card"><div class="prod-name">Scraping Browser</div><div class="prod-desc">Managed headless browser with built-in unblocking for JS-heavy portals, map interfaces, and dynamic career pages.</div></div>
+      <div class="prod-card"><div class="prod-name">Datasets</div><div class="prod-desc">Pre-collected, structured data updated daily: LinkedIn, job postings, real estate listings, news across 50,000+ sources.</div></div>
+    </div>
+    <div class="cert-row">
+      <div class="cert"><span class="cert-dot"></span>SOC 2 Type II</div>
+      <div class="cert"><span class="cert-dot"></span>ISO 27001</div>
+      <div class="cert"><span class="cert-dot"></span>GDPR Ready</div>
+      <div class="cert"><span class="cert-dot"></span>CCPA</div>
+      <div class="cert"><span class="cert-dot"></span>CSA STAR</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CLOSING ==================== -->
+<section class="closing">
+  <div class="wrap">
+    <div class="closing-q">"The more sophisticated your data product,<br>the more it depends on <span>reliable web access.</span>"</div>
+    <p class="closing-sub">Bright Data is the infrastructure layer underneath every serious AI-native data product.</p>
+    <a href="https://brightdata.com" class="cta-btn" target="_blank">Explore Bright Data <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
+</section>
+
+<!-- ==================== SOURCES ==================== -->
+<div class="sources-section">
+  <div class="wrap">
+    <div class="eyebrow">Sources &amp; References</div>
+    <div class="sources-grid">
+      <div class="source-item"><span class="source-num" id="s1">[1]</span><span>YipitData Series E — Carlyle Group, $475M, Dec 2021. <a href="https://tracxn.com/d/companies/yipitdata" target="_blank">Tracxn profile</a></span></div>
+      <div class="source-item"><span class="source-num" id="s2">[2]</span><span>RavenPack $20M round, Jul 2024. <a href="https://tracxn.com/d/companies/ravenpack-international" target="_blank">Tracxn profile</a></span></div>
+      <div class="source-item"><span class="source-num" id="s3">[3]</span><span>Clay $100M Series C at $3.1B valuation, CapitalG lead, Aug 2025. <a href="https://techcrunch.com/2025/08/05/clay-confirms-it-closed-100m-round-at-3-1b-valuation/" target="_blank">TechCrunch</a></span></div>
+      <div class="source-item"><span class="source-num" id="s4">[4]</span><span>Exa $17M Series A, Lightspeed + Nvidia + YC, Jul 2024. <a href="https://techcrunch.com/2024/07/16/exa-raises-17m-lightspeed-nvidia-ycombinator-google-ai-models/" target="_blank">TechCrunch</a></span></div>
+      <div class="source-item"><span class="source-num" id="s5">[5]</span><span>57% of organizations have AI agents in production, Mar 2026. <a href="https://masterofcode.com/blog/ai-agent-statistics" target="_blank">Master of Code AI Agent Report</a></span></div>
+      <div class="source-item"><span class="source-num" id="s6">[6]</span><span>58% of AI agent use cases involve research tasks. <a href="https://www.langchain.com/stateofaiagents" target="_blank">LangChain State of AI Agents Report</a></span></div>
+      <div class="source-item"><span class="source-num" id="s7">[7]</span><span>a16z most active investor 2024 — 100+ rounds. Sequoia, GC followed. <a href="https://news.crunchbase.com/ai/most-active-investors-2024-a16z-databricks-xai/" target="_blank">Crunchbase</a></span></div>
+      <div class="source-item"><span class="source-num" id="s8">[8]</span><span>40% of engineer time on data maintenance. Monte Carlo Data, via <a href="https://estuary.dev/blog/reducing-data-engineering-technical-debt" target="_blank">Estuary.dev</a></span></div>
+      <div class="source-item"><span class="source-num" id="s9">[9]</span><span>RAG hallucination failure modes. <a href="https://www.k2view.com/blog/rag-hallucination/" target="_blank">K2View</a> and <a href="https://developer.nvidia.com/blog/traditional-rag-vs-agentic-rag-why-ai-agents-need-dynamic-knowledge-to-get-smarter/" target="_blank">NVIDIA Technical Blog</a></span></div>
+      <div class="source-item"><span class="source-num" id="s10">[10]</span><span>SOC 2 Type II standard in enterprise vendor reviews. <a href="https://hyperproof.io/soc2/" target="_blank">Hyperproof SOC 2 Guide</a></span></div>
+      <div class="source-item"><span class="source-num">[11]</span><span>Firecrawl $14.5M Series A, Nexus Venture Partners lead, Aug 2025. <a href="https://techcrunch.com/2025/08/19/ai-crawler-firecrawl-raises-14-5m" target="_blank">TechCrunch</a></span></div>
+      <div class="source-item"><span class="source-num">[12]</span><span>Microsoft Bing Search API retired Aug 11, 2025. <a href="https://www.windowscentral.com/software-apps/browsing/bing-search-apis-to-be-decommissioned-completely" target="_blank">Windows Central</a></span></div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="wrap">
+  <div class="footer">
+    <div class="footer-logo">Bright<span>Data</span></div>
+    <div>2026 Bright Data Ltd. All rights reserved.</div>
+    <div>brightdata.com</div>
+  </div>
+</footer>
+
+</body>
+</html>

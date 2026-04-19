@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "daas-shareable",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "57300", "."],
+      "port": 57300
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+Company,Website,Segment,Type,What_They_Sell,HQ_Country,HQ_City,Employee_Range,Funding_Status,ICP_Fit,Priority_Tier,Scraping_Dependency
+ZoomInfo,zoominfo.com,B2B Intelligence & GTM,Traditional,B2B contact & company data,USA,Vancouver,500-1000,Public,C,T2,Low
+Apollo.io,apollo.io,B2B Intelligence & GTM,Traditional,Sales intelligence platform,USA,San Francisco,100-500,Series C,C,T2,Low
+Clearbit,clearbit.com,B2B Intelligence & GTM,Traditional,Company & contact enrichment,USA,San Francisco,50-100,Acquired by HubSpot,B,T2,Medium
+Dun & Bradstreet,dnb.com,B2B Intelligence & GTM,Traditional,Business intelligence,USA,Jacksonville,5000+,Public,X,T3,Low
+Similarweb,similarweb.com,B2B Intelligence & GTM,Traditional,Web analytics intelligence,Israel,Tel Aviv,500-1000,Public,B,T2,Medium
+Crunchbase,crunchbase.com,B2B Intelligence & GTM,Traditional,Startup & company data,USA,San Francisco,500-1000,Public,C,T2,Low
+Datanyze,datanyze.com,B2B Intelligence & GTM,Traditional,Technology intelligence,USA,San Mateo,100-500,Acquired by ZoomInfo,B,T2,Medium
+BuiltWith,builtwith.com,B2B Intelligence & GTM,Traditional,Website technology profiling,Australia,Sydney,50-100,Bootstrap,A,T1,High
+SimilarTech,similartech.com,B2B Intelligence & GTM,Traditional,Technology discovery platform,Israel,Tel Aviv,100-500,Series B,A,T1,High
+Clay,clay.com,B2B Intelligence & GTM,AI-Native,AI data enrichment platform,USA,New York City,50-100,Series B,C,T2,Low
+Lusha,lusha.com,B2B Intelligence & GTM,AI-Native,B2B contact intelligence,Israel,Boston,50-100,Series C,C,T2,Low
+Cognism,cognism.com,B2B Intelligence & GTM,AI-Native,Sales data platform,UK,London,100-500,Series D,C,T2,Low
+Seamless.AI,seamless.ai,B2B Intelligence & GTM,AI-Native,Real-time B2B data,USA,Columbus,100-500,Series C,B,T1,Medium
+RocketReach,rocketreach.co,B2B Intelligence & GTM,AI-Native,Professional contact database,USA,New York City,50-100,Series C,C,T2,Low
+Hunter.io,hunter.io,B2B Intelligence & GTM,AI-Native,Email finder & verification,UK,Wilmington,50-100,Series B,B,T1,Medium
+Leadspace,leadspace.com,B2B Intelligence & GTM,AI-Native,ABM data platform,USA,San Francisco,100-500,Series D,B,T2,Medium
+Diffbot,diffbot.com,B2B Intelligence & GTM,AI-Native,Web intelligence API,USA,Menlo Park,50-100,Series B,A,T1,High
+Coresignal,coresignal.com,B2B Intelligence & GTM,AI-Native,Alternative data platform,Lithuania,Vilnius,100-500,Series A,A,T1,High
+Crustdata,crustdata.com,B2B Intelligence & GTM,AI-Native,B2B signals platform,India,San Francisco,50-100,Series A,A,T1,High
+Harmonic,harmonic.ai,B2B Intelligence & GTM,AI-Native,Sales intelligence platform,USA,New York City,50-100,Series A,A,T1,High
+Veridion,veridion.com,B2B Intelligence & GTM,AI-Native,Business intelligence platform,USA,Bucharest,100-500,Series B,A,T1,High
+Explorium,explorium.ai,B2B Intelligence & GTM,AI-Native,ML data enrichment,Israel,Tel Aviv,100-500,Series C,A,T1,High
+Grata,grata.ai,B2B Intelligence & GTM,AI-Native,Company intelligence API,USA,New York City,50-100,Series A,A,T1,High
+Pipl,pipl.com,B2B Intelligence & GTM,AI-Native,People search & identity,Israel,Post Falls,100-500,Acquired,A,T1,High
+Databar,databar.ai,B2B Intelligence & GTM,AI-Native,Data enrichment platform,USA,New York City,50-100,Series A,A,T1,High
+People Data Labs,peopledatalabs.com,B2B Intelligence & GTM,AI-Native,People data API,USA,San Francisco,100-500,Series C,A,T1,High
+HG Insights,hginsights.com,B2B Intelligence & GTM,AI-Native,Buyer intent data,USA,Santa Barbara,100-500,Acquired,B,T2,Medium
+Snov.io,snov.io,B2B Intelligence & GTM,AI-Native,Email finding & verification,Lithuania,New York City,50-100,Bootstrap,B,T2,Medium
+FullContact,fullcontact.com,B2B Intelligence & GTM,AI-Native,Identity resolution API,USA,Denver,100-500,Series D,B,T2,Medium
+Vainu,vainu.io,B2B Intelligence & GTM,AI-Native,B2B intelligence platform,Finland,Helsinki,50-100,Series A,A,T1,High
+Brandfetch,brandfetch.com,B2B Intelligence & GTM,AI-Native,Brand intelligence API,UK,Unknown,50-100,Series B,A,T1,High
+Demandbase,demandbase.com,B2B Intelligence & GTM,AI-Native,Account intelligence platform,USA,San Francisco,500-1000,Series D,B,T2,Medium
+UserGems,usergems.com,B2B Intelligence & GTM,AI-Native,Job change intelligence,USA,San Francisco,50-100,Series B,B,T2,Medium
+Owler,owler.com,B2B Intelligence & GTM,AI-Native,Competitive intelligence,USA,Redwood City,100-500,Series C,B,T2,Medium
+GlobalDatabase,globaldatabase.com,B2B Intelligence & GTM,AI-Native,Business database platform,Bulgaria,Northampton,50-100,Bootstrap,B,T2,Medium
+Cleanlist,cleanlist.ai,B2B Intelligence & GTM,AI-Native,B2B data cleaning,USA,Toronto,50-100,Series A,A,T1,High
+Riveter,riveter.co,B2B Intelligence & GTM,AI-Native,Relationship intelligence,USA,San Francisco,50-100,Series A,A,T1,High
+Bureau van Dijk,bvdinfo.com,Alternative Financial Data,Traditional,Financial intelligence,Belgium,Brussels,1000-5000,Private,X,T3,Low
+PitchBook,pitchbook.com,Alternative Financial Data,Traditional,PE/VC market data,USA,Seattle,1000-5000,Acquired by Morningstar,X,T3,Low
+LexisNexis Risk,lexisnexisrisk.com,Alternative Financial Data,Traditional,Risk analytics,USA,Alpharetta,5000+,Public,X,T3,Low
+Statista,statista.com,Alternative Financial Data,Traditional,Market research data,Germany,Hamburg,500-1000,Private,X,T3,Low
+AlphaSense,alpha-sense.com,Alternative Financial Data,AI-Native,Alternative data platform,USA,New York City,500-1000,Series D,A,T1,High
+Thinknum,thinknum.com,Alternative Financial Data,AI-Native,Alternative data API,USA,New York City,50-100,Series B,A,T1,High
+Patlytics,patlytics.com,Alternative Financial Data,AI-Native,Patent analytics,USA,San Francisco,50-100,Bootstrap,A,T1,High
+Patsnap,patsnap.com,Alternative Financial Data,AI-Native,IP intelligence,Singapore,Singapore,500-1000,Series C,A,T1,High
+Xignite,xignite.com,Alternative Financial Data,AI-Native,Market data APIs,USA,Jersey City,100-500,Private,B,T2,Medium
+Finnhub,finnhub.io,Alternative Financial Data,AI-Native,Financial data API,USA,New York City,50-100,Bootstrap,B,T2,Medium
+Intrinio,intrinio.com,Alternative Financial Data,AI-Native,Financial data platform,USA,St. Petersburg,100-500,Series C,B,T2,Medium
+Quiver Quantitative,quiverquant.com,Alternative Financial Data,AI-Native,Alternative data aggregator,USA,Spring Green,50-100,Bootstrap,A,T1,High
+ExtractAlpha,extractalpha.com,Alternative Financial Data,AI-Native,ML alternative data,USA,Hong Kong,50-100,Series B,A,T1,High
+Visible Alpha,visiblealpha.com,Alternative Financial Data,AI-Native,Analyst research platform,USA,New York City,500-1000,Acquired,B,T2,Medium
+Enverus,enverus.com,Alternative Financial Data,AI-Native,Energy market data,USA,Austin,500-1000,Acquired,B,T2,Medium
+Predata,predata.com,Alternative Financial Data,AI-Native,Geopolitical risk data,USA,New York City,100-500,Series B,A,T1,High
+YipitData,yipitdata.com,Alternative Financial Data,AI-Native,Alternative data provider,USA,New York City,100-500,Series C,A,T1,High
+Consumer Edge,consumeredge.com,Alternative Financial Data,AI-Native,Consumer spending data,USA,New York City,50-100,Series B,A,T1,High
+Sentieo,sentieo.com,Alternative Financial Data,AI-Native,Financial research platform,USA,San Francisco,100-500,Series B,A,T1,High
+Preqin,preqin.com,Alternative Financial Data,Traditional,Alternative assets data,UK,London,500-1000,Public,B,T2,Medium
+Intelligence Node,intelligencenode.com,E-commerce & Price Intelligence,AI-Native,E-commerce price intelligence,USA,San Francisco,50-100,Series A,A,T1,High
+Profitero,profitero.com,E-commerce & Price Intelligence,AI-Native,Ecommerce analytics,USA,Boston,100-500,Series B,A,T1,High
+Stackline,stackline.com,E-commerce & Price Intelligence,AI-Native,Amazon analytics platform,USA,Seattle,100-500,Series C,B,T2,Medium
+Keepa,keepa.com,E-commerce & Price Intelligence,AI-Native,Amazon price tracking,Germany,Berlin,50-100,Bootstrap,B,T2,Medium
+DataHawk,datahawk.co,E-commerce & Price Intelligence,AI-Native,Amazon seller intelligence,USA,Paris,50-100,Series A,B,T2,Medium
+Jungle Scout,junglescout.com,E-commerce & Price Intelligence,AI-Native,Amazon research platform,USA,Chicago,100-500,Series B,B,T2,Medium
+Wiser Solutions,wiser.com,E-commerce & Price Intelligence,AI-Native,Dynamic pricing & analytics,USA,San Francisco,100-500,Series C,A,T1,High
+Prisync,prisync.com,E-commerce & Price Intelligence,AI-Native,Price optimization platform,Turkey,Istanbul,50-100,Series B,A,T1,High
+Minderest,minderest.com,E-commerce & Price Intelligence,AI-Native,Ecommerce intelligence,USA,Murcia,50-100,Series A,A,T1,High
+Competera,competera.net,E-commerce & Price Intelligence,AI-Native,Price optimization AI,Ukraine,New York City,100-500,Series C,A,T1,High
+Priceva,priceva.com,E-commerce & Price Intelligence,AI-Native,Price management platform,USA,Vaughan,50-100,Series B,B,T2,Medium
+Datasembly,datasembly.com,E-commerce & Price Intelligence,AI-Native,Retail price data,USA,Tysons,100-500,Series B,A,T1,High
+Tastewise,tastewise.io,E-commerce & Price Intelligence,AI-Native,Food market intelligence,Israel,Tel Aviv,50-100,Series B,A,T1,High
+Crisp,crispmetrics.com,E-commerce & Price Intelligence,AI-Native,Competitive intelligence,USA,Unknown,50-100,Series A,A,T1,High
+GrowByData,growbydata.com,E-commerce & Price Intelligence,AI-Native,E-commerce analytics,USA,Lexington,50-100,Series A,A,T1,High
+FoodSpark,foodspark.io,E-commerce & Price Intelligence,AI-Native,Food supply chain,UK,Houston,50-100,Series B,A,T1,High
+Spoonacular,spoonacular.com,E-commerce & Price Intelligence,AI-Native,Recipe & food data API,USA,Michigan City,50-100,Bootstrap,A,T1,High
+Edamam,edamam.com,E-commerce & Price Intelligence,AI-Native,Nutrition data API,Israel,New York City,50-100,Series B,A,T1,High
+Charm.io,charm.io,E-commerce & Price Intelligence,AI-Native,Product data platform,UK,New York City,50-100,Series A,A,T1,High
+Engage3,engage3.com,E-commerce & Price Intelligence,AI-Native,Retail analytics,Canada,Davis,100-500,Series B,A,T1,High
+Omnia Retail,omniaretail.com,E-commerce & Price Intelligence,AI-Native,Competitive retail data,Canada,Amsterdam,50-100,Series A,A,T1,High
+Skuuudle,skuuudle.com,E-commerce & Price Intelligence,AI-Native,Inventory intelligence,Canada,Manchester,50-100,Series A,A,T1,High
+Numerator,numerator.com,E-commerce & Price Intelligence,AI-Native,Retail analytics,USA,Chicago,500-1000,Public,B,T2,Medium
+Syndigo,syndigo.com,E-commerce & Price Intelligence,AI-Native,Product information,USA,Chicago,500-1000,Public,B,T2,Medium
+Dataweave,dataweave.io,E-commerce & Price Intelligence,AI-Native,Alternative data marketplace,USA,Bellevue,50-100,Series A,A,T1,High
+Datassential,datassential.com,E-commerce & Price Intelligence,AI-Native,Foodservice data,USA,Chicago,100-500,Series C,A,T1,High
+42Signals,42signals.com,E-commerce & Price Intelligence,AI-Native,E-commerce intelligence,India,Bengaluru,50-100,Series A,A,T1,High
+Shalion,shalion.com,E-commerce & Price Intelligence,AI-Native,E-commerce analytics,Spain,Barcelona,50-100,Series A,A,T1,High
+Import.io,import.io,E-commerce & Price Intelligence,AI-Native,Web data extraction,UK,San Francisco,100-500,Series C,A,T1,High
+Thunderbit,thunderbit.io,E-commerce & Price Intelligence,AI-Native,Competitive pricing,Israel,San Francisco,50-100,Series B,A,T1,High
+PriceRest,pricerest.com,E-commerce & Price Intelligence,AI-Native,Dynamic pricing,USA,Palo Alto,50-100,Series A,A,T2,High
+i2o Retail,i2oretail.com,E-commerce & Price Intelligence,AI-Native,Retail AI,USA,Seattle,50-100,Series B,A,T2,High
+CoreLogic,corelogic.com,Real Estate & PropTech,Traditional,Real estate data,USA,Irvine,1000-5000,Public,X,T3,Low
+CoStar Group,costargroup.com,Real Estate & PropTech,Traditional,Commercial real estate,USA,Arlington,1000-5000,Public,X,T3,Low
+Reonomy,reonomy.com,Real Estate & PropTech,AI-Native,Commercial real estate data,USA,New York City,100-500,Acquired,B,T2,Medium
+HouseCanary,housecanary.com,Real Estate & PropTech,AI-Native,Property valuation API,USA,San Francisco,100-500,Series C,A,T1,High
+Placer.ai,placer.ai,Real Estate & PropTech,AI-Native,Location analytics,USA,Los Altos,100-500,Series B,B,T2,Medium
+Unacast,unacast.com,Real Estate & PropTech,AI-Native,Location analytics platform,Norway,Ashburn,100-500,Series C,B,T2,Medium
+CompStak,compstak.com,Real Estate & PropTech,AI-Native,Commercial real estate data,USA,New York City,100-500,Series C,A,T1,High
+Cape Analytics,capeanalytics.com,Real Estate & PropTech,AI-Native,Geospatial AI,USA,Palo Alto,100-500,Series B,A,T1,High
+BatchData,batchdata.com,Real Estate & PropTech,AI-Native,Property data platform,Spain,Tempe,50-100,Series A,B,T2,Medium
+PropTrack,proptrack.com.au,Real Estate & PropTech,AI-Native,Real estate marketplace,Australia,Richmond,100-500,Series C,B,T2,Medium
+RealPage,realpage.com,Real Estate & PropTech,Traditional,Property management software,USA,Richardson,1000-5000,Acquired,B,T2,Medium
+Meltwater,meltwater.com,News & Media Intelligence,Traditional,Media intelligence,Norway,San Francisco,1000-5000,Public,C,T2,Low
+ComScore,comscore.com,News & Media Intelligence,Traditional,Digital analytics,USA,Reston,500-1000,Public,X,T3,Low
+Brandwatch,brandwatch.com,News & Media Intelligence,Traditional,Social listening,UK,Brighton,500-1000,Acquired,B,T2,Medium
+Talkwalker,talkwalker.com,News & Media Intelligence,Traditional,Social media analytics,Switzerland,Luxembourg City,500-1000,Series C,B,T2,Medium
+NewsAPI,newsapi.org,News & Media Intelligence,AI-Native,News aggregation API,UK,Unknown,50-100,Series A,B,T2,Medium
+NewsCatcher,newscatcherapi.com,News & Media Intelligence,AI-Native,Historical news API,Ukraine,Paris,50-100,Series A,A,T1,High
+Contify,contify.com,News & Media Intelligence,AI-Native,Regulatory intelligence,Canada,Gurgaon,50-100,Series B,B,T2,Medium
+WebZ.io,webz.io,News & Media Intelligence,AI-Native,Web content API,Israel,Bnei Brak,50-100,Series B,A,T1,High
+Infegy,infegy.com,News & Media Intelligence,AI-Native,Social listening platform,USA,Kansas City,50-100,Series A,B,T2,Medium
+Crayon,crayon.com,News & Media Intelligence,AI-Native,Competitor intelligence,USA,Oslo,100-500,Series B,A,T1,High
+Klue,klue.com,News & Media Intelligence,AI-Native,Competitive intelligence,Canada,Vancouver,100-500,Series C,A,T1,High
+NewsData.io,newsdata.io,News & Media Intelligence,AI-Native,Real-time news API,India,Noida,50-100,Series A,A,T1,High
+Signal AI,signal-ai.com,News & Media Intelligence,AI-Native,News intelligence platform,UK,London,100-500,Series B,A,T1,High
+Muck Rack,muckrack.com,News & Media Intelligence,AI-Native,Media database,USA,Miami,100-500,Series D,A,T1,High
+NewsWhip,newswhip.com,News & Media Intelligence,AI-Native,Content intelligence,Ireland,Dublin,100-500,Acquired,A,T1,High
+Brand24,brand24.com,News & Media Intelligence,AI-Native,Brand monitoring,Poland,Wroclaw,50-100,Bootstrap,A,T1,High
+Mention,mention.com,News & Media Intelligence,AI-Native,Media monitoring,France,Paris,50-100,Acquired,B,T2,Medium
+PeakMetrics,peakmetrics.com,News & Media Intelligence,AI-Native,Brand safety,USA,Los Angeles,50-100,Series B,A,T1,High
+Dataminr,dataminr.com,News & Media Intelligence,AI-Native,Real-time intelligence,USA,New York City,500-1000,Series E,A,T1,High
+Storyful,storyful.com,News & Media Intelligence,AI-Native,Social media newswire,Ireland,Dublin,100-500,Acquired by Facebook,B,T2,Medium
+Onclusive,onclusive.com,News & Media Intelligence,AI-Native,Media intelligence,USA,New York City,100-500,Series B,B,T2,Medium
+Lightcast,lightcast.io,Labor & Workforce Analytics,Traditional,Labor market analytics,USA,Moscow,500-1000,Series B,B,T1,Medium
+TalentNeuron,talentneuron.com,Labor & Workforce Analytics,AI-Native,Talent analytics,USA,New York City,100-500,Series C,B,T2,Medium
+Revelio Labs,reveliolabs.com,Labor & Workforce Analytics,AI-Native,Workforce intelligence,USA,New York City,100-500,Series B,A,T1,High
+Adzuna,adzuna.com,Labor & Workforce Analytics,AI-Native,Job market data,UK,London,100-500,Series B,A,T1,High
+Textkernel,textkernel.com,Labor & Workforce Analytics,AI-Native,Resume parsing & analytics,Netherlands,Amsterdam,100-500,Series C,A,T1,High
+SeekOut,seekout.com,Labor & Workforce Analytics,AI-Native,Talent acquisition,USA,Bellevue,50-100,Series B,B,T2,Medium
+Findem,findem.ai,Labor & Workforce Analytics,AI-Native,Talent search,USA,Redwood City,50-100,Series B,B,T2,Medium
+Techmap,techmap.com,Labor & Workforce Analytics,AI-Native,Tech talent database,India,Unknown,100-500,Series B,A,T1,High
+LinkUp,linkup.com,Labor & Workforce Analytics,AI-Native,Job market intelligence,USA,Minneapolis,50-100,Series A,A,T1,High
+Jobspikr,jobspikr.com,Labor & Workforce Analytics,AI-Native,Job market data,India,Bengaluru,50-100,Series A,A,T1,High
+TheirStack,theirstack.com,Labor & Workforce Analytics,AI-Native,Tech talent intelligence,USA,A Coruña,50-100,Series A,A,T1,High
+Aura,getaura.ai,Labor & Workforce Analytics,AI-Native,Workforce insights,USA,New York City,50-100,Series A,A,T1,High
+SignalFire,signalfire.com,Labor & Workforce Analytics,AI-Native,Market signals data,USA,San Francisco,100-500,Series D,B,T2,Medium
+Tavily,tavily.com,Search & Discovery APIs,AI-Native,AI search API,Israel,New York City,50-100,Series A,B,T1,Medium
+Exa,exa.ai,Search & Discovery APIs,AI-Native,Web search API,USA,San Francisco,50-100,Series A,A,T1,High
+Perplexity AI,perplexity.ai,Search & Discovery APIs,AI-Native,AI search engine,USA,San Francisco,100-500,Series B,X,T2,Low
+Parallel,parallel.com,Search & Discovery APIs,AI-Native,Search API,USA,Palo Alto,50-100,Series A,C,T2,Low
+You.com,you.com,Search & Discovery APIs,AI-Native,Privacy search engine,USA,Palo Alto,50-100,Series B,C,T2,Low
+Traject Data,trajectdata.com,Search & Discovery APIs,AI-Native,Web data API,USA,Westminster,50-100,Series A,A,T1,High
+Firecrawl,firecrawl.dev,Search & Discovery APIs,AI-Native,Web scraping API,USA,San Francisco,50-100,Series A,A,T1,High
+Apify,apify.com,Search & Discovery APIs,AI-Native,Web automation platform,Czech Republic,Prague,100-500,Series B,A,T1,High
+ScraperAPI,scraperapi.com,Search & Discovery APIs,AI-Native,Scraping API,USA,Las Vegas,50-100,Series A,A,T1,High
+Olostep,olostep.com,Search & Discovery APIs,AI-Native,Web search API,USA,San Francisco,50-100,Series A,A,T1,High
+Modash,modash.io,Social Media & Influencer Data,AI-Native,Influencer database,Sweden,Tallinn,50-100,Series A,A,T1,High
+Phyllo,phyllo.io,Social Media & Influencer Data,AI-Native,Creator API platform,India,San Francisco,50-100,Series A,A,T1,High
+EnsembleData,ensembledata.com,Social Media & Influencer Data,AI-Native,Social media data API,USA,Singapore,50-100,Series A,A,T1,High
+Socialinsider,socialinsider.io,Social Media & Influencer Data,AI-Native,Social media analytics,Romania,Bucharest,100-500,Series A,A,T2,Medium
+Audiense,audiense.com,Social Media & Influencer Data,AI-Native,Social media intelligence,Spain,London,100-500,Series B,A,T1,High
+Pulsar,pulsar.ai,Social Media & Influencer Data,AI-Native,Social listening platform,UK,London,100-500,Series C,A,T1,High
+Influencers.club,influencers.club,Social Media & Influencer Data,AI-Native,Influencer database,USA,Skopje,50-100,Series A,A,T2,Medium
+ScrapeCreators,scrapecreators.com,Social Media & Influencer Data,AI-Native,Creator intelligence,USA,Austin,50-100,Series A,A,T2,Medium
+Panjiva,panjiva.com,Supply Chain & Trade Data,Traditional,Trade intelligence,USA,New York City,100-500,Acquired by S&P,C,T2,Low
+Kpler,kpler.com,Supply Chain & Trade Data,AI-Native,Energy market data,Norway,Brussels,100-500,Series C,A,T1,High
+Interos,interos.ai,Supply Chain & Trade Data,AI-Native,Supply chain intelligence,USA,Arlington,100-500,Series C,B,T2,Medium
+Sayari,sayaridata.com,Supply Chain & Trade Data,AI-Native,Trade finance data,USA,Washington DC,50-100,Series B,A,T1,High
+Altana,altanadata.com,Supply Chain & Trade Data,AI-Native,Trade data platform,USA,New York City,100-500,Series B,A,T1,High
+Trademo,trademo.io,Supply Chain & Trade Data,AI-Native,Trade intelligence,UK,Palo Alto,50-100,Series A,A,T1,High
+Noodle.ai,noodle.ai,Supply Chain & Trade Data,AI-Native,Supply chain AI,USA,San Francisco,100-500,Series C,B,T2,Medium
+Citeline,citeline.com,Healthcare & Pharma Data,AI-Native,Pharma intelligence,USA,New York City,500-1000,Acquired,A,T1,High
+Dyania Health,dyania.com,Healthcare & Pharma Data,AI-Native,Healthcare data,USA,Jersey City,50-100,Series A,A,T2,Medium
+Unlearn.ai,unlearn.ai,Healthcare & Pharma Data,AI-Native,Clinical trial data,USA,San Francisco,50-100,Series B,A,T2,Medium
+Medable,medable.com,Healthcare & Pharma Data,AI-Native,Clinical trial platform,USA,Palo Alto,100-500,Series C,B,T2,Medium
+DomainTools,domaintools.com,Cybersecurity Data,Traditional,Domain intelligence,USA,Seattle,100-500,Series C,B,T2,Medium
+WhoisXML API,whoisxmlapi.com,Cybersecurity Data,Traditional,Domain data API,USA,Covina,50-100,Series A,B,T2,Medium
+Recorded Future,recordedfuture.com,Cybersecurity Data,AI-Native,Threat intelligence,USA,Somerville,500-1000,Series D,A,T1,High
+Shodan,shodan.io,Cybersecurity Data,AI-Native,Device search engine,USA,Seattle,10-50,Bootstrap,A,T1,High
+Censys,censys.io,Cybersecurity Data,AI-Native,Internet scanning,USA,Ann Arbor,50-100,Series B,A,T1,High
+GreyNoise,greynoise.io,Cybersecurity Data,AI-Native,Internet intelligence,USA,Washington DC,50-100,Series B,A,T1,High
+SecurityScorecard,securityscorecard.com,Cybersecurity Data,AI-Native,Security ratings,USA,New York City,100-500,Series D,B,T2,Medium
+BitSight,bitsight.com,Cybersecurity Data,AI-Native,Security ratings,USA,Boston,100-500,Series D,B,T2,Medium
+UpGuard,upguard.com,Cybersecurity Data,AI-Native,Security ratings,USA,Mountain View,100-500,Series C,B,T2,Medium
+IPinfo,ipinfo.io,Cybersecurity Data,AI-Native,IP intelligence,USA,Seattle,50-100,Series B,B,T2,Medium
+RiskRecon,riskrecon.com,Cybersecurity Data,AI-Native,Third-party risk,USA,Salt Lake City,50-100,Series B,B,T2,Medium
+Defined.ai,defined.ai,AI Training & Infrastructure,AI-Native,AI data platform,USA,Seattle,50-100,Series A,B,T2,Medium
+Browse AI,browseai.com,AI Training & Infrastructure,AI-Native,Web automation AI,USA,Vancouver,50-100,Series B,A,T1,High
+PromptCloud,promptcloud.com,AI Training & Infrastructure,AI-Native,Web data extraction,USA,Bengaluru,50-100,Series A,A,T1,High
+Reworkd,reworkd.ai,AI Training & Infrastructure,AI-Native,Agent automation,USA,San Francisco,50-100,Series A,A,T1,High
+Kadoa,kadoa.com,AI Training & Infrastructure,AI-Native,Data extraction API,USA,Zurich,50-100,Series A,A,T1,High
+NanoNets,nanonets.com,AI Training & Infrastructure,AI-Native,Document AI,USA,San Francisco,50-100,Series A,B,T2,Medium
+Extruct AI,extruct.ai,AI Training & Infrastructure,AI-Native,Structured data extraction,USA,Unknown,50-100,Series A,A,T1,High
+PromptLoop,promptloop.io,AI Training & Infrastructure,AI-Native,LLM data generation,USA,San Francisco,50-100,Series A,B,T2,Medium
+Scite,scite.ai,AI Training & Infrastructure,AI-Native,Research intelligence,USA,Brooklyn,50-100,Series B,B,T2,Medium
+Consensus,consensus.app,AI Training & Infrastructure,AI-Native,Research search,USA,Boston,50-100,Series A,B,T2,Medium
+Semantic Scholar,semanticscholar.org,AI Training & Infrastructure,AI-Native,Academic AI,USA,Seattle,100-500,Series C,B,T2,Medium
+APISCRAPY,apiscrapy.com,AI Training & Infrastructure,AI-Native,API scraping service,India,New York City,50-100,Series A,A,T2,Medium
+Listen Notes,listennotes.com,Podcast & Audio Data,AI-Native,Podcast search API,USA,Unknown,50-100,Series B,A,T1,High
+Podchaser,podchaser.com,Podcast & Audio Data,AI-Native,Podcast database,USA,Oklahoma City,50-100,Series A,A,T1,High
+Pod Engine,podengine.ai,Podcast & Audio Data,AI-Native,Podcast analytics,USA,Cardiff,50-100,Series A,A,T1,High
+Podscan,podscan.fm,Podcast & Audio Data,AI-Native,Podcast monitoring,Denmark,Unknown,50-100,Bootstrap,A,T1,High
+Hopper,hopper.com,Travel & Hospitality Data,AI-Native,Travel price intelligence,Canada,Montreal,100-500,Series E,B,T2,Medium
+Makcorps,makcorps.com,Travel & Hospitality Data,AI-Native,Hotel data platform,India,Jaipur,50-100,Series A,A,T2,Medium
+SEC-API.io,sec-api.io,Government & Regulatory Data,AI-Native,SEC filings API,USA,Unknown,10-50,Bootstrap,B,T2,Low
+Planet Labs,planet.com,Alternative Financial Data,Traditional,Satellite imagery,USA,San Francisco,500-1000,Public,X,T3,Low
+Arlula,arlula.com,Alternative Financial Data,Traditional,Satellite data API,UK,Sydney,50-100,Series A,B,T2,Medium
+FlyPix AI,flypixai.com,Alternative Financial Data,AI-Native,Geospatial AI,USA,Darmstadt,50-100,Series A,B,T2,Medium
+People.ai,people.ai,B2B Intelligence & GTM,AI-Native,Revenue intelligence,USA,San Francisco,100-500,Series D,X,T3,Low
+Foursquare,foursquare.com,B2B Intelligence & GTM,Traditional,Location data platform,USA,New York City,500-1000,Public,B,T2,Medium
+Brandify,brandify.ai,Social Media & Influencer Data,AI-Native,Brand management platform,USA,Anaheim,50-100,Series A,A,T2,Medium
+DataFlow,dataflow.ai,AI Training & Infrastructure,AI-Native,Data pipeline platform,USA,Unknown,50-100,Series B,B,T2,Medium
