@@ -601,7 +601,7 @@ function StickyNav() {
     sections.forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
     return () => obs.disconnect();
   }, []);
-  const links = [{id:'shift',label:'The Shift'},{id:'ontology',label:'Ontology'},{id:'properties',label:'4 Properties'},{id:'context',label:'Context Stack'},{id:'context-windows',label:'Context Windows'},{id:'market',label:'Market'},{id:'infra',label:'Infrastructure'}];
+  const links = [{id:'shift',label:'The Shift'},{id:'ontology',label:'Ontology'},{id:'properties',label:'4 Properties'},{id:'context',label:'Context Stack'},{id:'context-windows',label:'Context Windows'},{id:'market',label:'Market'},{id:'landscape',label:'Landscape'},{id:'infra',label:'Infrastructure'}];
   return (
     <nav className="sticky-nav">
       <div className="snav-logo">
@@ -1369,7 +1369,8 @@ function App() {
         <div className="divider wrap"/>
         <MarketOverview />
         <div className="divider wrap"/>
-
+        <MarketMap />
+        <div className="divider wrap"/>
         <InfraSection />
         <section className="closing">
           <div className="wrap">
