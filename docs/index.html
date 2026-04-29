@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Rise of the Context Layer — Bright Data Research 2026</title>
+<title>The Rise of the Web-Context Layer — Raz Kaplan, Bright Data 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -539,8 +539,8 @@ const VCS = [
 ];
 
 const SOURCES = [
-  {id:'s1',n:'[1]',t:'YipitData Series E, Carlyle Group, $475M, Dec 2021.',url:'https://tracxn.com/d/companies/yipitdata',lt:'Tracxn'},
-  {id:'s2',n:'[2]',t:'RavenPack $20M round, Jul 2024.',url:'https://tracxn.com/d/companies/ravenpack-international',lt:'Tracxn'},
+  {id:'s1',n:'[1]',t:'YipitData raises $475M, valued at $1B, Carlyle Group lead, Dec 2021.',url:'https://www.wsj.com/articles/alternative-data-firm-yipitdata-valued-at-1-billion-after-carlyle-backed-fundraise-11638978007',lt:'WSJ'},
+  {id:'s2',n:'[2]',t:'RavenPack raises $20M Series D, GP Bullhound and Molten Ventures lead, Jul 2024.',url:'https://www.businesswire.com/news/home/20240716765494/en/RavenPack-Raises-20-Million-Series-D-Led-by-GP-Bullhound-and-Molten-Ventures',lt:'BusinessWire'},
   {id:'s3',n:'[3]',t:'Clay $100M Series C at $3.1B valuation, CapitalG lead, Aug 2025.',url:'https://techcrunch.com/2025/08/05/clay-confirms-it-closed-100m-round-at-3-1b-valuation/',lt:'TechCrunch'},
   {id:'s5',n:'[5]',t:'57% of organizations have AI agents in production, Mar 2026.',url:'https://masterofcode.com/blog/ai-agent-statistics',lt:'Master of Code'},
   {id:'s6',n:'[6]',t:'58% of AI agent use cases involve research tasks.',url:'https://www.langchain.com/stateofaiagents',lt:'LangChain State of AI Agents'},
@@ -681,11 +681,11 @@ function Header() {
             onError={e => { e.target.style.display='none'; }} />
         </div>
         <div className="hdr-pill"><span className="hdr-dot"/>Industry Thesis · April 2026</div>
-        <h1>The Rise of<br/><span>the Context Layer</span></h1>
-        <p className="hdr-sub">A working thesis on where AI data products are going. AI systems don't consume rows, they consume structured, fresh, multi-source context that they can reason over. This report maps how leading data companies are reshaping their products around that shift, what makes context defensible, and the web access infrastructure every team in this space depends on. Bright Data is that infrastructure: the platform under the products, not the products themselves.</p>
+        <h1>The Rise of<br/><span>the Web-Context Layer</span></h1>
+        <p className="hdr-sub">AI systems don't consume rows. They consume structured, fresh, multi-source context they can reason over directly. This report maps how leading data companies are reshaping their products around that shift, what makes context defensible, and the web access infrastructure every team in this space depends on.</p>
         <div className="hdr-meta">
           <span><b>Published:</b> April 2026</span>
-          <span><b>Produced by:</b> Bright Data Research</span>
+          <span><b>By:</b> <a href="https://www.linkedin.com/in/razkaplan/" target="_blank" style={{color:'var(--blue-l)',textDecoration:'none'}}>Raz Kaplan</a>, AI GTM, Bright Data</span>
           <span><b>Scope:</b> Five segments · 75+ companies · 20+ investors</span>
         </div>
       </div>
@@ -987,7 +987,7 @@ function MarketMap() {
       <div ref={mapRef}>
         <div style={{textAlign:'center',marginBottom:'24px',padding:'12px'}}>
           <h2 style={{fontSize:'28px',fontWeight:900,letterSpacing:'-0.04em',margin:'0 0 8px',color:'#fff'}}>The DaaS Market Landscape 2026</h2>
-          <p style={{fontSize:'14px',color:'#94A3B8',margin:0}}>By Raz Kaplan, AI GTM Lead at Bright Data</p>
+          <p style={{fontSize:'14px',color:'#94A3B8',margin:0}}>By <a href="https://www.linkedin.com/in/razkaplan/" target="_blank" style={{color:'#94A3B8'}}>Raz Kaplan</a>, AI GTM, Bright Data</p>
         </div>
         <div className="mmap-outer">
           <div className="mmap">
@@ -1374,7 +1374,7 @@ function App() {
         <section className="closing">
           <div className="wrap">
             <div className="closing-q">"Every CaaS company in this market, from alt-data to workforce intelligence, depends on one thing: <span>reliable, compliant, real-time web access at scale.</span>"</div>
-            <div className="closing-attr">By Raz Kaplan, AI GTM Lead at Bright Data · April 2026</div>
+            <div className="closing-attr">By <a href="https://www.linkedin.com/in/razkaplan/" target="_blank" style={{color:'#64748b',textDecoration:'none'}}>Raz Kaplan</a>, AI GTM, Bright Data · April 2026</div>
             <a href="https://brightdata.com/ai/data-packages" className="cta-btn" target="_blank">
               Talk to a data infra expert
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1408,7 +1408,7 @@ function App() {
         <div className="footer-inner">
           <img src="https://logo.clearbit.com/brightdata.com" alt="Bright Data" style={{height:24,objectFit:'contain'}} onError={e=>e.target.style.display='none'} />
           <div>Industry research. Published April 2026.</div>
-          <div>Raz Kaplan | Bright Data Research</div>
+          <div><a href="https://www.linkedin.com/in/razkaplan/" target="_blank" style={{color:'inherit',textDecoration:'none'}}>Raz Kaplan</a>, AI GTM, Bright Data</div>
         </div>
       </footer>
     </>
