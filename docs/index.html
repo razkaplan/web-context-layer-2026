@@ -948,7 +948,7 @@ function MarketMap() {
         const file = new File([blob], 'bright-data-daas-market-map-2026.png', { type: 'image/png' });
         if (navigator.canShare({ files: [file] })) {
           await navigator.share({
-            title: 'The DaaS Market Landscape 2026',
+            title: 'The Web-Context Market Landscape 2026',
             text: 'AI-native data companies, five segments, one shared infrastructure dependency.',
             files: [file],
           });
@@ -986,8 +986,7 @@ function MarketMap() {
 
       <div ref={mapRef}>
         <div style={{textAlign:'center',marginBottom:'24px',padding:'12px'}}>
-          <h2 style={{fontSize:'28px',fontWeight:900,letterSpacing:'-0.04em',margin:'0 0 8px',color:'#fff'}}>The DaaS Market Landscape 2026</h2>
-          <p style={{fontSize:'14px',color:'#94A3B8',margin:0}}>By <a href="https://www.linkedin.com/in/razkaplan/" target="_blank" style={{color:'#94A3B8'}}>Raz Kaplan</a>, AI GTM, Bright Data</p>
+          <h2 style={{fontSize:'28px',fontWeight:900,letterSpacing:'-0.04em',margin:0,color:'#fff'}}>The Web-Context Market Landscape 2026</h2>
         </div>
         <div className="mmap-outer">
           <div className="mmap">
