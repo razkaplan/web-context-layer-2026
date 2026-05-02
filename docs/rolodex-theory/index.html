@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Rolodex Theory of AI — Raz Kaplan, Bright Data</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#F9F9F7;font-family:'Georgia',serif;color:#191919;min-height:100vh}
+
+  .topbar{background:#fff;border-bottom:1px solid #e6e6e6;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+  .topbar-brand{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;color:#292929;letter-spacing:-.01em}
+  .topbar-meta{font-family:system-ui,sans-serif;font-size:12px;color:#757575}
+
+  .hero{background:#fff;border-bottom:1px solid #e6e6e6;padding:56px 24px 40px;text-align:center}
+  .hero-tag{display:inline-block;font-family:system-ui,sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#3D7FFC;background:rgba(61,127,252,.08);border:1px solid rgba(61,127,252,.2);padding:4px 12px;border-radius:4px;margin-bottom:24px}
+  .hero h1{font-size:clamp(24px,3.6vw,36px);font-weight:700;letter-spacing:-.03em;line-height:1.2;color:#191919;max-width:720px;margin:0 auto 20px}
+  .hero-byline{font-family:system-ui,sans-serif;font-size:14px;color:#757575;margin-bottom:6px}
+  .hero-byline strong{color:#292929}
+  .hero-date{font-family:system-ui,sans-serif;font-size:12px;color:#9e9e9e;letter-spacing:.04em;text-transform:uppercase}
+
+  .divider-line{width:48px;height:2px;background:#3D7FFC;margin:32px auto}
+
+  .article{max-width:680px;margin:0 auto;padding:48px 24px 80px}
+
+  /* Body paragraphs */
+  .article p{font-size:20px;line-height:1.68;color:#191919;margin-bottom:28px;font-weight:400}
+  .article strong{font-weight:700;color:#191919}
+  .article em{font-style:italic}
+
+  /* Section headings */
+  .article h2{font-family:system-ui,sans-serif;font-size:22px;font-weight:700;letter-spacing:-.02em;color:#191919;margin:56px 0 20px;padding-bottom:10px;border-bottom:2px solid #3D7FFC}
+  .article h3{font-family:system-ui,sans-serif;font-size:16px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#3D7FFC;margin:36px 0 14px}
+
+  /* Intro italic paragraph */
+  .article p:first-of-type{font-size:21px;line-height:1.7;color:#333}
+
+  /* Tables */
+  .article table{width:100%;border-collapse:collapse;margin:24px 0 36px;font-family:system-ui,sans-serif;font-size:14px}
+  .article thead tr{background:#3D7FFC}
+  .article thead th{color:#fff;font-weight:600;padding:10px 14px;text-align:left;letter-spacing:.03em}
+  .article tbody tr{border-bottom:1px solid #e6e6e6}
+  .article tbody tr:hover{background:#f4f7ff}
+  .article tbody td{padding:10px 14px;color:#292929;vertical-align:top;line-height:1.5}
+  .article tbody td:first-child{font-weight:600}
+  .article tbody td strong{font-weight:700}
+
+  /* Horizontal rule */
+  .article hr{border:none;border-top:1px solid #e6e6e6;margin:48px 0}
+
+  /* Sources */
+  .sources{max-width:680px;margin:0 auto;padding:0 24px 80px}
+  .sources h2{font-family:system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9e9e9e;margin-bottom:20px;padding-top:32px;border-top:1px solid #e6e6e6}
+  .sources ul{list-style:none;padding:0}
+  .sources li{font-family:system-ui,sans-serif;font-size:13px;color:#555;margin-bottom:10px;padding-left:16px;position:relative;line-height:1.5}
+  .sources li::before{content:'';position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:#3D7FFC}
+  .sources a{color:#3D7FFC;text-decoration:none}
+  .sources a:hover{text-decoration:underline}
+
+  .word-count{font-family:system-ui,sans-serif;font-size:12px;color:#9e9e9e;text-align:center;padding:16px;border-top:1px solid #e6e6e6;margin-top:0}
+
+  @media(max-width:600px){
+    .article p{font-size:18px}
+    .hero h1{font-size:22px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-brand">CaaS Article Preview</span>
+  <span class="topbar-meta">Medium-style · PE/VC · April 2026</span>
+</div>
+
+<div class="hero">
+  <div class="hero-tag">Bright Data Research</div>
+  <h1>The Rolodex Theory of AI: Why the Most Interesting Engineers Are Building Philosophy, Not Databases</h1>
+  <div class="hero-byline"><strong>Raz Kaplan</strong>, AI GTM Lead, Bright Data</div>
+  <div class="hero-date">April 2026 &nbsp;·&nbsp; <span id="wc-display">--</span> words &nbsp;·&nbsp; ~12-min read</div>
+</div>
+
+<div class="divider-line"></div>
+
+<div class="article" id="article-body">
+  <!-- rendered by marked -->
+</div>
+
+<div class="sources" id="sources-body">
+  <!-- rendered by JS -->
+</div>
+
+<div class="word-count" id="word-count"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+const md = `The most interesting shift happening inside AI engineering right now is not about model size, fine-tuning, or inference speed. It is about ontology. A growing cohort of engineers has stopped asking "how do we give agents more data?" and started asking something more fundamental: "what does an agent actually need to know about the world?"
+
+Their answer is rewriting a category.
+
+## Two Pieces of Paper
+
+Consider two pieces of paper. The first is a page from a phonebook. It tells you that Pat Grady is co-steward at Sequoia Capital. Phone number. Email. Address. That is data.
+
+The second is a page from a well-maintained Rolodex with handwritten side notes. It tells you that Pat Grady is co-steward at Sequoia, that he led every round of Harvey AI from a $150M Series A to an $11B valuation, that he also sits on the cap table of Orbital Insight and 6sense, that he published a reflection on AI infrastructure investing three weeks ago, that he tends to respond to cold outreach on Tuesday mornings, and that the last time you were in the same room he was asking pointed questions about data provenance in legal AI. That is context.
+
+Both pieces of paper contain "information." Only one of them makes an agent useful.
+
+This is the philosophical foundation of a category that is forming in plain sight. Call it Context-as-a-Service. The companies building it are not selling phonebooks. They are building Rolodexes — structured, relational, annotated records of how entities in the world relate to each other — with one additional requirement that makes the whole thing significantly harder: the notes have to be alive.
+
+## The Live Validation Requirement
+
+That coffee shop around the corner from the hotel? It matters that it is five minutes away. It also matters that it is open right now, that it started accepting reservations last month, and that its espresso machine has been broken since Tuesday. A recommendation grounded in stale context is not just less useful — in the wrong domain, it is actively harmful.
+
+This is why the engineers working on context infrastructure have converged on a principle that sounds obvious but is architecturally demanding: relational knowledge is not a snapshot. It is a stream. Every node in the graph has a freshness requirement. Some relationships update annually (a career move). Some update daily (a job posting surge). Some need to be validated at the moment of use (is the API returning data right now, or is the source blocking access?).
+
+The data companies that understood this early are the ones pulling away. The ones that did not are becoming ZoomInfo: a $25 billion company that became a $1.8 billion company in four years because it sold a phonebook in a world that had decided it wanted the Rolodex.
+
+## The Escalation Problem
+
+Here is what makes the ontological approach interesting beyond sales and marketing, where most of the early investment has gone.
+
+In sales, better context means better outreach. A rep who knows that a prospect's champion just got promoted, that three of the prospect's engineers starred their GitHub repo last week, and that the company posted a DevOps role yesterday closes faster. That is a meaningful improvement. It is not a civilization-scale one.
+
+Move one step up the value chain to private equity and the stakes get sharper. The deal signal in PE is almost never in the data. It is in the relationship changes. A CFO starts networking visibly on LinkedIn. Three product engineers leave in sixty days. A founder shifts their conference framing from "enterprise" to "infrastructure." None of these are numbers in a spreadsheet. They are relational events — nodes changing state in the graph — and an agent that can read them in real time and chain them together sees a deal emerging weeks before any memo reaches an investment committee. That is not a nice-to-have. That is alpha.
+
+But health and science is where the chain-of-thought implications become genuinely difficult to bound.
+
+A drug database can tell you that Compound X is approved for Condition Y. A context layer can tell you that Compound X treats Condition Y via Mechanism Z, but that patients with Biomarker A show forty percent reduced efficacy, that a 2024 paper identified a possible mediating role for Protein Q (characterized only last year), that three clinical trials are currently enrolling patients with exactly the population profile you care about, and that the lead investigator on two of those trials was an author on the original mechanism paper. That is a chain of thought an agent can reason over. The output of that reasoning chain is potentially a better clinical decision. In some cases, the difference between the phonebook and the Rolodex is the difference between a treatment that works and one that does not.
+
+The same logic applies to protein folding, materials science, regulatory genealogy, legal precedent. The more complex and interconnected the domain, the more the quality of the context layer determines the quality of the reasoning output. The model matters less than you think. The context layer matters more. On knowledge-intensive tasks, a model receiving accurate grounded context consistently outperforms a stronger model without it — because the problem is not reasoning capability. The problem is that models cannot know what they do not have access to.
+
+## The Founder Signal
+
+Investors asking "which AI companies should I look at?" are often asking the wrong question. The better question is: which founders are thinking about entity relationships, not entity records?
+
+There is a tell. Context-first founders talk about what they call "the gap between what the model thinks it knows and what is actually true right now." They build freshness SLAs into their product architecture before they build dashboards. They distinguish between a fact (the company raised $40M) and a relationship (the company raised $40M from a fund whose partner previously backed two companies that competed with this one, which is relevant context for the next round conversation). They worry about what happens when an upstream source starts blocking access, because they know their entire value proposition lives or dies on the reliability of the live data layer underneath.
+
+That last point is the one that most early-stage context companies have not solved. Building the Rolodex is hard. Keeping it alive is the real product.
+
+The web access infrastructure layer — managing anti-bot systems, maintaining source coverage, validating freshness at production scale — is the invisible prerequisite for every company on the map below.
+
+Palantir has been building ontology infrastructure for fifteen years and represents the most mature version of this philosophy at enterprise scale. The reason it requires significant operational resources to deploy is the consumption layer it was built for: human analysts querying knowledge graphs at deliberate pace. The agent model changes that equation. Agents query context programmatically, at high volume, continuously — the consumption velocity shifts the unit economics, eliminates the analyst layer, and raises a different hard problem. Not building the knowledge graph. Keeping it live at agent-query speed. MCP standardizes the consumption interface. Commoditized vector databases and graph engines remove the prior infrastructure bottleneck. What remains is the data acquisition and freshness problem — which is what no language model can solve on its own, and what the best companies on this map have built.
+
+## The Market Doing the Math
+
+The financial case has followed the philosophical case, not led it. IDC's Directions 2026 research projects agentic AI will exceed $1.3 trillion in global spending by 2029, more than 26% of worldwide IT budgets (IDC, March 2026). Gartner confirms the adoption curve: less than 5% of enterprise applications feature AI agents today; 40% will by the end of 2026 (Gartner, August 2025). Every one of those agents needs a context layer to be useful.
+
+The retrieval infrastructure underneath sits at $3.33 billion in 2026, compounding at roughly 49% CAGR toward $67 to $81 billion by 2034 (Precedence Research, 2025). Anthropic's Model Context Protocol, donated to the Linux Foundation in December 2025, hit 10,000 public servers and 97 million monthly SDK downloads by early 2026 — the protocol layer standardizing how agents consume context is already at infrastructure scale. Production benchmarks confirm the infrastructure demand is real: Bright Data, one of the largest web data collection platforms (disclosure: the author works there), crossed $300M ARR in 2025 at over 50% year-on-year growth powering 100 million daily AI agent interactions (CTech, 2026). That is not a Bright Data story. It is a context layer story.
+
+Private multiples reflect the thesis. Clay remarked at $5B in a 2026 employee tender, roughly 50x ARR. Glean raised at $7.2B against $200M ARR, a 36x multiple, with explicit positioning as the "connective tissue between models and enterprise systems" (TechCrunch, February 2026). Harvey AI reached an $8B valuation building context infrastructure for legal reasoning. The spread from 50x to 10x maps most cleanly onto one variable: how much of the moat survives a better model. Clay's proprietary data collection cannot be replicated by a prompt. Glean's enterprise graph accumulates depth with every connected system and every search. The companies at the high end are the ones whose competitive advantage does not erode when OpenAI ships a stronger base model.
+
+The investors assembling the most intentional positions here are not waiting for a consensus view. Pat Grady at Sequoia led Harvey AI from a $150M Series A to an $11B valuation and holds positions in Orbital Insight and 6sense — three companies in three different context verticals, the same underlying bet expressed three times. Caroline Xie at ICONIQ Growth built overlapping stakes in Relativity, Komodo Health, Benchling, and People.ai before most allocators had a name for the category. Tiger Global holds positions in Komodo Health, Klue, RelationalAI, and Benchling. These are not thematic bets on "AI." They are precise bets on the context layer, placed by people who recognized the philosophical shift before the financial case was obvious.
+
+Strategic buyers see the same thing. Salesforce paid $8 billion for Informatica, framing it as "the data foundation for agentic AI." ServiceNow paid $500 million for data.world to give agents "the context to drive smarter outcomes." $8.5 billion in a single year on the same underlying bet.
+
+On the bear case: context windows are expanding fast, but a 1M-token query runs 30 to 60x slower than a RAG pipeline at roughly 1,250x the per-query cost, and hybrid retrieval-plus-long-context wins 7 of 8 enterprise use cases in head-to-head testing (LaRA benchmark, OpenReview 2026). Bigger context windows do not replace the context layer. They increase its value, because more context can be injected into a larger window. And Gartner's prediction that 40% of agentic AI projects will be cancelled by end of 2027 is not a headwind for this category. It is the reason the category exists: the cancelled projects are the ones that shipped without grounded context.
+
+## The Layer Beneath the Rolodex
+
+Before mapping the context companies, one structural point matters for investors.
+
+The companies below build and sell the Rolodex. They own the domain curation, the entity model, the freshness contracts. But underneath every one of them is a substrate they build on: vector databases that store and retrieve embeddings at production scale (Pinecone, Weaviate, Qdrant), knowledge graph engines that store and traverse entity relationships (Neo4j, TigerGraph), entity resolution platforms that decide whether two records refer to the same real-world object (Senzing, Diffbot), and structured intelligence extractors that convert raw signals into typed entities (Accrete).
+
+These are different investments. Different buyer (engineer, not enterprise), different GTM, different competitive dynamics. But they are investable on the same thesis: every company building a Rolodex needs a filing system, a relationship engine, and a way to resolve whether two records pointing to the same person are actually the same person. The infrastructure layer has its own moats, and in some cases they are more durable than the application layer above them.
+
+The 42 companies below are the application layer. The infrastructure beneath them is the reason the application layer exists.
+
+Two commercial archetypes run through this map and are worth distinguishing before reading it. The first sells context as a product: structured relational data licensed to AI teams and agent pipelines. Komodo Health, Bombora, and Enigma sell the Rolodex directly. The second builds proprietary context as the moat powering a vertical AI application. Harvey AI, EvenUp, and Atropos Health use context to deliver a downstream outcome — legal reasoning, case valuation, real-world evidence studies — and charge for the outcome, not the context directly. Different exit profiles, different competitive dynamics, different churn curves. Both derive their defensibility from the same source: a context layer that cannot be replicated without building the same data infrastructure from scratch.
+
+## 42 Companies Building the Rolodex
+
+The category is wide. Below is a map of 42 companies across eight context verticals. What they share is not a market or a geography. It is a philosophical orientation: entities, relationships, freshness, and the belief that the quality of the reasoning output is determined by the quality of the context input.
+
+The Live column: Y means the product has a continuous data refresh pipeline as a core feature — new data ingested and validated daily or faster. N means the product works on a periodically updated corpus. Both are defensible; the distinction surfaces in freshness SLA conversations with enterprise buyers.
+
+---
+
+### 1. Professional Relationship Graph
+*Structural context: org hierarchies, career histories, professional connections — data that changes on the timescale of careers, not clicks*
+
+| Company | What context they deliver | Live |
+|---|---|---|
+| **Affinity** | Relationship paths between deal teams and targets via email/calendar data — not a contact list match, a relationship map | N |
+| **People.ai** | True relationship coverage gaps across an account's buying committee — which exec has never been touched | N |
+| **Revelio Labs** | Org change signals: a target hired 12 ML engineers in 90 days, a buying signal months before any announcement | Y |
+| **ZoomInfo** | GTM Context Graph: 1.5B+ daily signals fusing CRM, conversation, and behavioral context | Y |
+| **Centralize** | A prospect's new CTO worked at your best customer for four years — an intro path invisible in the CRM | N |
+
+---
+
+### 2. Financial and Market Intelligence
+*Company signals, market movements, alternative data for investors*
+
+| Company | What context they deliver | Live |
+|---|---|---|
+| **AlphaSense** (+ Tegus) | Links a CFO comment to 14 prior expert calls on the same supplier — contextualizing whether a claim is new or a pattern | N |
+| **Quantexa** | Resolves three separately-registered shell entities to shared beneficial owners — context invisible to siloed transaction data | Y |
+| **RelationalAI** | Relational coprocessor for Snowflake: joins network, customer tenure, and payment data into a unified context model | N |
+| **SpaceKnow** | 23% drop in parking-lot occupancy at a retailer's distribution centers, two weeks before earnings | Y |
+| **Neudata** | Alternative data marketplace with structured signal context and provenance for quant funds | Y |
+| **Enigma** | Resolves a single SMB's identity across 40+ government and financial data sources — the entity layer that makes small business credit risk legible | Y |
+
+---
+
+### 3. Scientific Research Context
+*Paper relationships, citation graphs, experimental lineage*
+
+| Company | What context they deliver | Live |
+|---|---|---|
+| **Semantic Scholar** (AI2) | Conceptual lineage across 220M+ papers — the hidden ancestor paper connecting six works in your reading list | N |
+| **Elicit** | Structured extraction of study claims, methods, and contradictions across 138M+ papers and 545K clinical trials | N |
+| **Scite.ai** | 1.6B+ citations classified as supporting, contrasting, or mentioning — relational context on top of citation metadata | N |
+| **Litmaps** | A cluster of papers forming a disconnected island from mainstream literature — a research gap before any review has named it | N |
+| **Benchling** | Experimental lineage: a failed 2021 synthesis result that used the same reagent lot causing current batch failures | N |
+
+*Note: this vertical is at an earlier commercial stage than the others. Semantic Scholar is a nonprofit with no traditional revenue model. Elicit and Scite are primarily direct-access tools today, not enterprise data products. The investment thesis here is longer-dated — the context layer for pharma R&D and materials science discovery will be enormous, but the monetization models are still forming. Benchling, serving life sciences R&D teams under enterprise contracts, is the most commercially mature entity in this group.*
+
+---
+
+### 4. Health and Clinical Context
+*Patient history graphs, drug interaction context, clinical evidence chains*
+
+| Company | What context they deliver | Live |
+|---|---|---|
+| **Komodo Health** | Full treatment journey of 330M+ patients: which prior treatment sequences predict immunotherapy response | Y |
+| **Tempus AI** | 14,000 similar patients' treatment sequences — real-world evidence grounding, not just a drug label | Y |
+| **Atropos Health** | Runs a live observational study against EHR networks in minutes to answer a specific clinical question | Y |
+| **Sorcero** | 360-degree HCP context: a KOL's congress presentations, publications, and medical inquiry pattern in one view | N |
+| **HealthVerity** | Resolves the same patient across claims, lab, and specialty pharmacy into a longitudinal identity graph | Y |
+
+---
+
+### 5. Legal and Regulatory Context
+*Case law relationships, regulatory history, precedent chains*
+
+| Company | What context they deliver | Live |
+|---|---|---|
+| **Harvey AI** | Contextualized precedent: the 3 most analogous negotiated clauses from comparable M&A deals, not a template | N |
+| **Clio + vLex** | Matter documents plus controlling case law, statutory text, and commentary in a single query | Y |
+| **Norm Ai** | Converts regulation text into a live-running compliance obligation graph, checked against every communication | Y |
+| **EvenUp** | Precedent-weighted settlement valuation range from 500+ comparable injury cases — not a calculator, a case-similarity graph | N |
+| **Relativity (aiR)** | Two documents from different custodians referencing the same internal code name — a hidden connection surfaced | N |
+
+---
+
+### 6. Geospatial and Real-time Context
+*Location intelligence, time-sensitive place relationships, physical world context*
+
+| Company | What context they deliver | Live |
+|---|---|---|
+| **Orbital Insight** | Crude oil tanker traffic drop contextualised against prior sanctions events — pattern, not noise | Y |
+| **Satellogic** | Change detection from 30cm imagery compared to 18 months of baseline — change-in-context, not a new image | Y |
+| **Nearmap** | Structured property risk profile: roof material, age, solar panels, tree proximity — relational context on a parcel | Y |
+| **Ecopia AI** | Every bike lane, crosswalk, and turn restriction as a relational vector layer — mobility reasoning context | N |
+| **SafeGraph** | A fast-food location co-located inside Walmart with 60% visit overlap with the adjacent gas station — place relationship context | Y |
+
+---
+
+### 7. News and Media Signal Context
+*Entity sentiment evolution, narrative context, trend relationships*
+
+| Company | What context they deliver | Live |
+|---|---|---|
+| **Signal AI** | Brand co-mentioned with a competitor's product recall in 23 regional outlets — narrative trajectory, not mention count | Y |
+| **Meltwater** | Monitors how a brand is described inside leading LLMs — what GPT, Gemini, and Perplexity "think" about the company | Y |
+| **Primer AI** | Extracts entities, relationships, and claims from streaming news across languages — structured intelligence from unstructured volume | Y |
+| **Linkurious** | The network of offshore companies behind a media conglomerate — beneficial owner graph that made the Panama Papers readable | N |
+| **Talkwalker** | Sentiment shift from niche PR topic to mainstream purchase driver over 18 months, with the exact inflection events | Y |
+
+---
+
+### 8. Sales and GTM Intent Context
+*Behavioral context: who is researching what right now — ephemeral signals that expire in days, not careers, and require continuous refresh to remain useful*
+
+| Company | What context they deliver | Live |
+|---|---|---|
+| **6sense** | An account you have never contacted has 11 people researching your category across 500K+ sites — dark funnel buying context | Y |
+| **Bombora** | Accenture's Chicago office has a 94-point surge on "zero-trust network access" — 6 employees, 4 publisher sites, 14 days | Y |
+| **Common Room** | 3 engineers starred your repo, one opened a support ticket, the company just posted a DevOps role — one account story | Y |
+| **Klue** | Competitor updated their pricing page, linked to 3 recent deals where they won on price — competitive context at deal impact | Y |
+| **Demandbase** | Full digital journey of a buying committee before your first call — who consumed what, in what order, across how many touchpoints | Y |
+| **Onfire** | Tracks when a champion who bought your product moves to a new company — the re-purchase signal before any new contact is made | Y |
+
+---
+
+## What to Look For
+
+The founders building the most defensible context businesses share a specific disposition. They are not building richer databases. They are building knowledge systems with explicit freshness contracts, entity resolution layers, and provenance chains. They can tell you not just what their product knows, but when it was last validated, where it came from, and what happens when the source becomes unavailable.
+
+That last question is the one that separates the Rolodex builders from the phonebook sellers. A phonebook does not need to know where its data came from. A Rolodex with live side notes absolutely does. The quality of the context is only as good as the reliability of the access layer underneath — the infrastructure that fetches, validates, and refreshes the world's knowledge on the schedule that agents require.
+
+The investors who find this category early will not find it by reading market reports. They will find it by talking to an engineer who stopped being interested in the model and started being interested in what the model thinks it knows — and whether that is actually true, right now.
+
+---
+
+*Raz Kaplan, AI GTM Lead, Bright Data*`;
+
+const sources = [
+  ['IDC, Directions 2026', 'https://my.idc.com/getdoc.jsp?containerId=prUS53765225'],
+  ['Gartner, 40% of enterprise apps with agents by 2026', 'https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025'],
+  ['Gartner, 40% of agentic AI projects cancelled', 'https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027'],
+  ['Precedence Research, RAG market', 'https://www.precedenceresearch.com/retrieval-augmented-generation-market'],
+  ['Anthropic / Linux Foundation, MCP donation', 'https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation'],
+  ['CTech, Bright Data $300M ARR', 'https://www.calcalistech.com/ctechnews/article/sjeyg2ezwe'],
+  ['TechCrunch, Glean $7.2B Series F', 'https://techcrunch.com/2026/02/15/the-enterprise-ai-land-grab-is-on-glean-is-building-the-layer-beneath-the-interface/'],
+  ['Crunchbase, Clay $5B tender', 'https://news.crunchbase.com/venture/ai-powered-gtm-startup-clay-valuation-doubles-capitalg/'],
+  ['Salesforce, Informatica acquisition', 'https://www.salesforce.com/news/press-releases/2025/11/18/salesforce-completes-acquisition-of-informatica/'],
+  ['ServiceNow, data.world acquisition', 'https://techcrunch.com/2025/05/07/servicenow-acquires-data-world-two-months-after-acquiring-moveworks/'],
+  ['LaRA Benchmark, RAG vs long context', 'https://openreview.net/forum?id=CLF25dahgA'],
+  ['MacroTrends, ZoomInfo market cap', 'https://www.macrotrends.net/stocks/charts/GTM/zoominfo-technologies/market-cap'],
+  ['Palantir Q4 2025 earnings', 'https://investors.palantir.com/news-details/2025/Palantir-Technologies-Inc.-Reports-Fourth-Quarter-and-Full-Year-2025-Financial-Results/'],
+];
+
+// Configure marked for GitHub-flavored markdown (tables)
+marked.setOptions({ gfm: true, breaks: false });
+
+// Render article
+const body = document.getElementById('article-body');
+body.innerHTML = marked.parse(md);
+
+// Word count
+const words = md.trim().split(/\s+/).length;
+document.getElementById('wc-display').textContent = words.toLocaleString();
+document.getElementById('word-count').textContent = words.toLocaleString() + ' words';
+
+// Render sources
+const srcDiv = document.getElementById('sources-body');
+const h2 = document.createElement('h2');
+h2.textContent = 'Sources';
+srcDiv.appendChild(h2);
+const ul = document.createElement('ul');
+sources.forEach(([label, url]) => {
+  const li = document.createElement('li');
+  li.innerHTML = `<a href="${url}" target="_blank">${label}</a>`;
+  ul.appendChild(li);
+});
+srcDiv.appendChild(ul);
+</script>
+</body>
+</html>
